@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Demo JS Đơn Giản</title>
+  </head>
+
+  <body>
+    <h2>Demo sự kiện JavaScript</h2>
+
+    <button onclick="alert('Xin chào!')">Nhấn để hiện Alert</button>
+
+    <button onclick="confirm('Bạn có chắc chắn không?')">
+      Nhấn để hiện Confirm
+    </button>
+
+    <button id="btnHover">Di chuột vào đây</button>
+
+    <script>
+      document.getElementById("btnHover").onmouseover = function () {
+        alert("Bạn vừa di chuột lên nút!");
+      };
+    </script>
+  </body>
+</html>
