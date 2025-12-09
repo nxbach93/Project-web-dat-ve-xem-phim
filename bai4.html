@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Demo JS Đơn Giản</title>
   </head>
 
@@ -8,16 +10,25 @@
 
     <button onclick="alert('Xin chào!')">Nhấn để hiện Alert</button>
 
-    <button onclick="confirm('Bạn có chắc chắn không?')">
-      Nhấn để hiện Confirm
-    </button>
+    <div style="display:flex; gap:10px; align-items:center; margin-top:8px;">
+      <button onclick="confirm('Bạn có chắc chắn không?')">Nhấn để hiện Confirm</button>
+      <button id="btnHover">Di chuột vào đây</button>
+    </div>
 
-    <button id="btnHover">Di chuột vào đây</button>
+    <div style="margin-top:10px;">
+      <input type="text" id="nameInput" placeholder="Nhập tên..." />
+      <button id="btnSend">Gửi</button>
+    </div>
 
     <script>
       document.getElementById("btnHover").onmouseover = function () {
         alert("Bạn vừa di chuột lên nút!");
       };
+
+      document.getElementById("btnSend").addEventListener("click", function () {
+        // Hiển thị thông báo khi gửi
+        alert("Đã gửi thành công");
+      });
     </script>
   </body>
 </html>
