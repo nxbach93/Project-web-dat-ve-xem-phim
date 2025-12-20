@@ -1,0 +1,155 @@
+/* ================= RESET NHẸ ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= MAIN ================= */
+main.movie-list {
+  padding-top: 110px; /* vì header fixed */
+  padding-bottom: 60px;
+}
+
+/* ================= MOVIE GRID ================= */
+.movie-card {
+  background-color: #0b1a2d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= POSTER ================= */
+.poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+.poster:hover {
+  transform: scale(1.05);
+}
+
+/* ================= TEXT ================= */
+.movie-card h5 {
+  font-size: 18px;
+  margin: 10px 0 6px;
+  font-weight: 600;
+}
+
+.movie-card p {
+  font-size: 14px;
+  color: #cccccc;
+  margin-bottom: 12px;
+}
+
+/* ================= BUTTON ================= */
+.movie-card .btn {
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #e50914;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.movie-card .btn:hover {
+  background-color: #b20710;
+  transform: scale(1.05);
+}
+
+/* ================= BUTTON ADMIN (SỬA/XÓA) ================= */
+.movie-card .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.movie-card .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.movie-card .btn-danger {
+  background-color: #dc3545;
+}
+
+.movie-card .btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+/* ================= NÚT THÊM PHIM ================= */
+.add-movie-btn {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-movie-btn:hover {
+  background-color: #1e7e34;
+  transform: scale(1.05);
+}
+
+/* ================= SCROLL TO TOP ================= */
+#scrollToTopButton {
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopButton:hover {
+  background-color: #ffffff;
+  color: #e50914;
+  transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .poster {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .poster {
+    height: 260px;
+  }
+}
+
+@media (max-width: 576px) {
+  main.movie-list {
+    padding-top: 120px;
+  }
+
+  .poster {
+    height: 240px;
+  }
+
+  .add-movie-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
