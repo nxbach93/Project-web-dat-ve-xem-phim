@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Đăng ký khách hàng</title>
+    <link rel="stylesheet" href="formDangKyKH.css">
 </head>
 <body>
 
