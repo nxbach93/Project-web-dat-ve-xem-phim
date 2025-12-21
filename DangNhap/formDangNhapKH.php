@@ -6,6 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Đăng nhập khách hàng</title>
+    <link rel="stylesheet" href="formDangNhapKH.css">
 </head>
 <body>
 
@@ -18,7 +19,12 @@ session_start();
     <input type="text" name="username" required><br><br>
 
     <label>Mật khẩu</label><br>
-    <input type="password" name="password" required><br><br>
+    <input type="password" name="password" required>
+    <?php if (isset($_GET['error'])): ?>
+        <p style="color: #e50914; margin: -10px 0 15px 0; font-size: 14px;">❌ Sai tài khoản hoặc mật khẩu</p>
+    <?php else: ?>
+        <br><br>
+    <?php endif; ?>
 
     <button type="submit">Đăng nhập</button>
 </form>
