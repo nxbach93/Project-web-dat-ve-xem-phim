@@ -1,0 +1,109 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.detail-container {
+    padding-top: 100px; /* Khoảng cách cho header fixed */
+    padding-bottom: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.detail-card {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.detail-img {
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.detail-img img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.detail-content {
+    padding: 40px;
+}
+
+.detail-content h1 {
+    color: #e50914;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.meta-info {
+    color: #b3b3b3;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.content-body {
+    line-height: 1.8;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+}
+
+.content-body h3 {
+    color: #e50914;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.action-buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-back, .btn-edit-detail {
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-back {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-back:hover {
+    background-color: #555;
+}
+
+.btn-edit-detail {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.btn-edit-detail:hover {
+    background-color: #3498db;
+}
