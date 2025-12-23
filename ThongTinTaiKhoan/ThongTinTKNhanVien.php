@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../headfoot/header.css">
+    <link rel="stylesheet" href="ThongTinTK.css">
+    <script src="ThongTinTK.js"></script>
+    <title>Thông tin tài khoản nhân viên</title>
+</head>
+<body>
+    <?php include "../headfoot/header.php"; ?>
+    <br><br><br>
+    <div class="account-container">
+        <h2 class="section-title">Thông tin tài khoản nhân viên</h2>
+        
+        <div class="account-content">
+            <div class="account-sidebar">
+                <div class="avatar-wrapper">
+                    <div class="avatar-placeholder" id="avatarText">A</div>
+                </div>
+                <h3 id="displayName">Nguyễn Văn A</h3>
+                <div class="staff-status-box">
+                    <br>
+                    <br>
+        <p class="position">Chức vụ: <span>Nhân viên bán vé</span></p> <br>
+       <p class="join-date">Ngày vào làm: 01/01/2024</p>
+    </div>
+            </div>
+
+            <div class="account-main">
+                <form id="profileForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Họ và tên</label>
+                            <input type="text" name="fullname" value="Nguyễn Văn A" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input type="text" name="phone" value="0901234567" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" value="anv@example.com" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày sinh</label>
+                            <input type="date" name="dob" value="1995-01-01" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Giới tính</label>
+                            <select name="gender" disabled>
+                                <option value="Nam" selected>Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Địa chỉ</label>
+                            <input type="text" name="address" value="123 Đường ABC, Quận 1, TP.HCM" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="editBtn" class="btn btn-outline">Cập nhật</button>
+                        <button type="submit" id="saveBtn" class="btn btn-primary" style="display: none;">Lưu thay đổi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

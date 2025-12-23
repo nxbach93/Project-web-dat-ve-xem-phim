@@ -1,0 +1,81 @@
+
+    body {
+        background-color: #000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    /* Card chứa form */
+    .password-card {
+        background-color: #121212;
+        padding:50px 60px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 650px;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        align-content: center;
+    }
+
+    /* Tiêu đề có vạch đỏ bên trái giống ảnh mẫu */
+    .form-title {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 30px;
+        border-left: 4px solid #b71c1c; /* Màu đỏ đô */
+        padding-left: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Nhãn và Ô nhập liệu */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        color: #999;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        background-color: #1f1f1f; /* Màu xám đậm của input */
+        border: 1px solid #333;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #b71c1c; /* Đổi màu viền khi click vào */
+    }
+
+    /* Nút Cập nhật */
+    .form-actions {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .btn-update {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        padding: 10px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+
+    .btn-update:hover {
+        background-color: #fff;
+        color: #000;
+    }

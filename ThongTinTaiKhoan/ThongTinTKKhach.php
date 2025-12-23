@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../headfoot/header.css">
     <link rel="stylesheet" href="ThongTinTK.css">
     <script src="ThongTinTK.js"></script>
-    <title>Document</title>
+    <title>Thông tin tài khoản</title>
 </head>
 <body>
     <?php include "../headfoot/header.php"; ?>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" id="editBtn" class="btn btn-outline">Chỉnh sửa</button>
+                        <button type="button" id="editBtn" class="btn btn-outline">Cập nhật</button>
                         <button type="submit" id="saveBtn" class="btn btn-primary" style="display: none;">Lưu thay đổi</button>
                     </div>
                 </form>
