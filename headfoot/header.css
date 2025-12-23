@@ -1,0 +1,90 @@
+/* ================= RESET NHẸ ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
+}
+
+/* ================= LINK CHUNG ================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= HEADER ================= */
+header {
+  background-color: #fff; /* nền trắng */
+  padding: 15px 30px;
+  border-bottom: 2px solid #e50914; /* gạch đỏ */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 70px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+header h1 a {
+  color: #e50914; /* màu logo đỏ */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* ================= NAV ================= */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #000; /* chữ đen */
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #e50914; /* đổi đỏ khi hover */
+}
+
+/* ================= AUTH (Welcome + Logout) ================= */
+.auth {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 15px;
+}
+
+.auth span {
+  color: #000; /* chữ đen */
+  font-weight: 700;
+}
+
+.auth a {
+  color: #e50914;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.05); /* nhẹ để nổi bật */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth a:hover {
+  background-color: #e50914;
+  color: #fff;
+  transform: scale(1.05);
+}

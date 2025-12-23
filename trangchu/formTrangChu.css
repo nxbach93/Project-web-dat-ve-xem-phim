@@ -1,0 +1,59 @@
+/* ===== MAIN ===== */
+.home {
+  padding-top: 100px; /* vì header fixed */
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 70vh;
+  background-color: white; /* nền trắng */
+  /* background-image: url("../images/hero-bg.jpg"); */ /* ẩn ảnh nền */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-size: 42px;
+  color: #000; /* chữ màu đen */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #000; /* chữ màu đen */
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #e50914; /* nút đỏ nổi bật */
+  color: #fff; /* chữ nút trắng */
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #b20710; /* màu đỏ đậm khi hover */
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 50px 80px;
+}
