@@ -1,0 +1,157 @@
+/* Tổng thể khung chứa */
+.home {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-top: 100px; /* vì header fixed */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000; /* Thêm nền đen cho trang nếu cần */
+}
+
+/* Tiêu đề trang */
+.section-title {
+    color: #e50914; 
+    font-size: 28px;
+    text-transform: uppercase;
+    border-left: 5px solid #e50914;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+/* Từng khối rạp */
+.cinema-item {
+    text-align: center;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Đổi sang column để thông tin rạp ở trên, phim ở dưới cho rộng rãi */
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cinema-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-color: #e50914;
+}
+
+/* Phần chi tiết rạp */
+.cinema-details {
+    padding: 25px;
+    color: #cccccc;
+    line-height: 1.6;
+    border-bottom: 1px solid #333; /* Ngăn cách với phần phim */
+}
+
+.cinema-details h3 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Phần danh sách phim đang chiếu */
+.cinema-current-movie {
+    background: #222222;
+    padding: 25px;
+}
+
+.cinema-current-movie h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #e50914;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Khung chứa các phim */
+.list-movies {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Tự động xuống dòng khi nhiều phim */
+}
+
+/* Thẻ phim con */
+.movie-card {
+    width: 140px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-card img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.movie-card img:hover {
+    filter: brightness(1.2);
+}
+
+.movie-name {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 14px;
+    height: 40px; /* Giữ tên phim không làm lệch hàng */
+    overflow: hidden;
+}
+
+.no-movie {
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+}
+.rap-form {
+    max-width: 500px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin: 30px auto;
+}
+
+.rap-form input,
+.rap-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.rap-form button {
+    background: #e50914;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-suaxoa {
+    display: inline-block;
+    padding: 6px 15px;
+    background-color: #e50914;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.btn-suaxoa:hover {
+    background-color: #b20710;
+}
