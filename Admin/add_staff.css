@@ -1,0 +1,78 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  min-height: 100vh;
+  padding-top: 120px; /* né header fixed */
+}
+
+/* ================= FORM ================= */
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ================= TITLE ================= */
+form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* ================= LABEL ================= */
+label {
+  font-weight: 600;
+  color: #000000;
+}
+
+/* ================= INPUT ================= */
+input {
+  width: 100%;
+}
+
+/* ================= BUTTON ================= */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e50914;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b20710;
+}
+
+/* ================= MESSAGE ================= */
+.success-msg {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.error-msg {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}

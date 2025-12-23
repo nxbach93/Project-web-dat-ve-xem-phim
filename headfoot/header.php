@@ -12,11 +12,11 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="/project/phim/phim.php">Phim</a></li>
-            <li><a href="/project/rap/rap.php">Rạp</a></li>
-            <li><a href="/project/lichchieu/lichchieu.php">Lịch chiếu</a></li>
-            <li><a href="/project/giave/giave.php">Giá vé</a></li>
-            <li><a href="/project/tintuc/tintuc.php">Tin tức</a></li>
+            <li><a href="/project/phim/phim.php">PHIM</a></li>
+            <li><a href="/project/rap/rap.php">RẠP</a></li>
+            <li><a href="/project/lichchieu/lichchieu.php">LỊCH CHIẾU</a></li>
+            <li><a href="/project/giave/giave.php">GIÁ VÉ</a></li>
+            <li><a href="/project/tintuc/tintuc.php">TIN TỨC</a></li>
         </ul>
     </nav>
 
