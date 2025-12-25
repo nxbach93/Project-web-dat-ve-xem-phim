@@ -6,16 +6,16 @@ if (session_status() === PHP_SESSION_NONE) {
 <header>
     <!-- Logo -->
     <h1>
-        <a href="../TrangChu/formTrangChu.php">Cinemas</a>
+        <a href="/project/trangchu/formTrangChuNV.php">Cinemas</a>
     </h1>
 
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="../Phim/phim.php">Phim</a></li>
-            <li><a href="../Rap/rap.php">Rạp</a></li>
-            <li><a href="../LichChieu/lichchieu.php">Lịch chiếu</a></li>
-            <li><a href="../GiaVe/giave.php">Giá vé</a></li>
+            <li><a href="/project/phim/phimNV.php">Phim</a></li>
+            <li><a href="/project/rap/rapNV.php">Rạp</a></li>
+            <li><a href="/project/lichchieu/lichchieuNV.php">Lịch chiếu</a></li>
+            <li><a href="/project/giave/giaveNV.php">Giá vé</a></li>
             <li><a href="../TinTuc/formTinTuc.php">Tin tức</a></li>
         </ul>
     </nav>
@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="dropdown">
                 <a href="#" class="dropbtn"><?= htmlspecialchars($_SESSION['username']) ?> ▼</a>
                 <div class="dropdown-content">
-                    <a href="../ThongTinTaiKhoan/ThongTinTKKhach.php">Thông tin tài khoản</a>
+                    <a href="../ThongTinTaiKhoan/ThongTinTKNhanVien.php">Thông tin tài khoản</a>
                     <a href="../DangNhap/logout.php">Đăng xuất</a>
                 </div>
             </div>

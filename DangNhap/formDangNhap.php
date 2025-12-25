@@ -10,7 +10,7 @@ session_start();
 </head>
 <body>
 
-<h2>Đăng nhập khách hàng</h2>
+<h2>Đăng nhập</h2>
 
 <form method="post" action="login_process.php">
     <input type="hidden" name="role" value="customer">
@@ -29,7 +29,7 @@ session_start();
     <button type="submit">Đăng nhập</button>
 </form>
 
-<p>Chưa có tài khoản? <a href="formDangKyKH.php">Đăng ký</a></p>
+<p>Chưa có tài khoản? <a href="formDangKy.php">Đăng ký</a></p>
 
 </body>
 </html>
