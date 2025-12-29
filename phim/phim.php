@@ -1,5 +1,14 @@
 <?php
 require_once '../headfoot/connect.php';
+require_once '../Data/DataRap.php';
+require_once '../Data/DataLichChieu.php';
+require_once '../Data/PhimData.php';
+
+$dataRap = new DataRap($conn);
+$dataLich = new DataLichChieu($conn);
+$dataPhim = new PhimData($conn);
+$dsPhim = $dataPhim->getAllMovies();
+$dsRap = $dataRap->getAll();
 session_start();
 
 /* ===== DANH MỤC PHIM ===== */
@@ -24,6 +33,8 @@ $categories = [
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
      <link rel="stylesheet" href="phim.css">
+     <link rel="stylesheet" href="popup.css">
+
 </head>
 
 <body>
@@ -161,9 +172,13 @@ $search = $_GET['search'] ?? '';
                                 ⭐ <?= $row['Rate'] ?? 'Chưa đánh giá' ?>
                             </p>
 
-                            <a class="btn btn-danger w-100" href="#">
-                                Mua vé
-                            </a>
+                            <a
+                    href="ChonRap.php?idphim=<?= $row['IDPhim'] ?>"
+                     class="btn btn-danger w-100"
+                            > Mua vé
+                             </a>
+
+
                         </div>
                     </div>
                 <?php endwhile; ?>
@@ -173,8 +188,12 @@ $search = $_GET['search'] ?? '';
     <?php endforeach; ?>
 
 <?php endif; ?>
+  
 </main>
+
+
 <button id="scrollToTopButton" onclick="window.scrollTo({top:0,behavior:'smooth'})">
      <i class="fas fa-arrow-up"></i> </button>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">       
-     </script> </body> </html>
+     </script>
+    </body> </html>

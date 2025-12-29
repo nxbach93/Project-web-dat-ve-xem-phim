@@ -55,7 +55,7 @@ $result = $conn->query($sql);
 
 <body>
 
-<?php include "../../headfoot/header.php"; ?>
+<?php include "../../headfoot/headerNV.php"; ?>
 
 <main class="container movie-list">
 

@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* THÔNG TIN PHIM */
+.movie-info {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+}
+
+.movie-info img {
+  width: 140px;
+  border-radius: 6px;
+}
+
+.movie-info h2 {
+  margin: 0;
+  color: #e50914;
+}
+
+/* CHỌN NGÀY */
+.date-filter {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.date-item {
+  padding: 10px 16px;
+  background: #222;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.date-item:hover {
+  background: #e50914;
+}
+
+/* SUẤT CHIẾU */
+.showtime-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.showtime-card {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+
+  border: 1px solid #e50914;
+  border-radius: 6px;
+
+  color: #fff;
+  text-decoration: none;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.showtime-card:hover {
+  background: #e50914;
+}
+
+/* Giờ chiếu */
+.showtime-card .time {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Tên rạp */
+.showtime-card .rap {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+/* Ghế */
+.showtime-card .seat {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.btn-book {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #e50914;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn-book:hover {
+  opacity: 0.85;
+}

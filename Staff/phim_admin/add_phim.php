@@ -1,5 +1,6 @@
 <?php
 require_once '../../headfoot/connect.php';
+require_once '../../Data/PhimData.php';
 session_start();
 
 /* ================= CHECK LOGIN ================= */
@@ -9,36 +10,25 @@ if (!isset($_SESSION['LoaiTK'])) {
 }
 
 /* ================= CHECK QUYỀN ================= */
-/* admin + staff được thêm phim */
 if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
     echo "❌ Bạn không có quyền thêm phim";
     exit();
 }
 
 $error = null;
+$dataPhim = new PhimData($conn);
 
 /* ================= XỬ LÝ FORM ================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    /* ===== LẤY DATA ===== */
-    $tenPhim     = $_POST['TenPhim'];
-    $theLoai     = $_POST['TheLoai'];
-    $quocGia     = $_POST['QuocGia'];
-    $thoiLuong   = (int)$_POST['ThoiLuong'];
-    $ngayKC      = $_POST['NgayKhoiChieu'];
-    $daoDien     = $_POST['DaoDien'];
-    $dienVien    = $_POST['DienVien'];
-    $tomTat      = $_POST['TomTat'];
-    $rate        = $_POST['Rate'];
-
     /* ===== UPLOAD POSTER ===== */
-    $posterName = time() . '_' . basename($_FILES['Poster']['name']);
-    $uploadDir  = "../../images/movie/";
-    $uploadPath = $uploadDir . $posterName;
-
+    $uploadDir = "../../images/movie/";
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
+
+    $posterName = time() . '_' . basename($_FILES['Poster']['name']);
+    $uploadPath = $uploadDir . $posterName;
 
     if (!move_uploaded_file($_FILES['Poster']['tmp_name'], $uploadPath)) {
         $error = "❌ Upload poster thất bại";
@@ -46,33 +36,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* ===== INSERT DB ===== */
     if (!$error) {
-        $sql = "
-            INSERT INTO qlphim (
-                TenPhim, TheLoai, QuocGia,
-                ThoiLuong, NgayKhoiChieu,
-                Poster, DaoDien, DienVien,
-                TomTat, Rate, Comment
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)
-        ";
+        $data = [
+            'TenPhim'        => $_POST['TenPhim'],
+            'ThoiLuong'      => (int)$_POST['ThoiLuong'],
+            'TheLoai'        => $_POST['TheLoai'],
+            'QuocGia'        => $_POST['QuocGia'],
+            'NgayKhoiChieu'  => $_POST['NgayKhoiChieu'],
+            'Poster'         => $posterName,
+            'DaoDien'        => $_POST['DaoDien'],
+            'DienVien'       => $_POST['DienVien'],
+            'TomTat'         => $_POST['TomTat'],
+            'Rate'           => $_POST['Rate'] ?? 0,
+            'TongGhe'        => 100   // 👈 mặc định (sửa nếu cần)
+        ];
 
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "sssisssssi",
-            $tenPhim,
-            $theLoai,
-            $quocGia,
-            $thoiLuong,
-            $ngayKC,
-            $posterName,
-            $daoDien,
-            $dienVien,
-            $tomTat,
-            $rate
-        );
-        $stmt->execute();
-
-        header("Location: phimAdmin.php");
-        exit();
+        if ($dataPhim->addMovie($data)) {
+            header("Location: phimAdmin.php");
+            exit();
+        } else {
+            $error = "❌ Thêm phim thất bại";
+        }
     }
 }
 ?>
@@ -83,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Thêm phim</title>
 
-    <link rel="stylesheet" href="../../headfoot/header.css">
+    <link rel="stylesheet" href="../../headfoot/headerNV.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -98,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <!-- FORM -->
     <form method="post" enctype="multipart/form-data">
 
         <div class="mb-3">
@@ -123,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="mb-3">
             <label>Thời lượng (phút)</label>
-            <input type="number" name="ThoiLuong" class="form-control" required>
+            <input type="number" name="Thoiluong" class="form-control" required>
         </div>
 
         <div class="mb-3">

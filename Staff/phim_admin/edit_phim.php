@@ -1,5 +1,6 @@
 <?php
 require_once '../../headfoot/connect.php';
+require_once '../../Data/PhimData.php';
 session_start();
 
 /* ================= CHECK LOGIN ================= */
@@ -14,6 +15,8 @@ if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
     exit();
 }
 
+$phimData = new PhimData($conn);
+
 /* ================= CHECK ID ================= */
 if (!isset($_GET['id'])) {
     header("Location: phimAdmin.php");
@@ -23,11 +26,7 @@ if (!isset($_GET['id'])) {
 $id = (int)$_GET['id'];
 
 /* ================= LẤY PHIM ================= */
-$stmt = $conn->prepare("SELECT * FROM qlphim WHERE IDPhim = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$movie = $stmt->get_result()->fetch_assoc();
-
+$movie = $phimData->getMovieById($id);
 if (!$movie) {
     header("Location: phimAdmin.php");
     exit();
@@ -39,23 +38,25 @@ $error = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* ===== LẤY DATA ===== */
-    $tenPhim     = $_POST['TenPhim'];
-    $theLoai     = $_POST['TheLoai'];
-    $quocGia     = $_POST['QuocGia'];
-    $thoiLuong   = (int)$_POST['ThoiLuong'];
-    $ngayKC      = $_POST['NgayKhoiChieu'];
-    $daoDien     = $_POST['DaoDien'];
-    $dienVien    = $_POST['DienVien'];
-    $tomTat      = $_POST['TomTat'];
-    $rate        = $_POST['Rate'];
+    $data = [
+        'TenPhim'       => $_POST['TenPhim'],
+        'ThoiLuong'     => (int)$_POST['ThoiLuong'],
+        'TheLoai'       => $_POST['TheLoai'],
+        'QuocGia'       => $_POST['QuocGia'],
+        'NgayKhoiChieu' => $_POST['NgayKhoiChieu'],
+        'DaoDien'       => $_POST['DaoDien'],
+        'DienVien'      => $_POST['DienVien'],
+        'TomTat'        => $_POST['TomTat'],
+        'Rate'          => $_POST['Rate'],
+        'TongGhe'       => $movie['TongGhe'], // giữ nguyên
+        'Poster'        => $movie['Poster']
+    ];
 
     /* ===== XỬ LÝ POSTER ===== */
-    $posterName = $movie['Poster'];
-
     if (!empty($_FILES['Poster']['name'])) {
 
         $posterName = time() . '_' . basename($_FILES['Poster']['name']);
-        $uploadDir  = "../images/movie/";
+        $uploadDir  = "../../images/movie/";
         $uploadPath = $uploadDir . $posterName;
 
         if (!is_dir($uploadDir)) {
@@ -63,50 +64,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (move_uploaded_file($_FILES['Poster']['tmp_name'], $uploadPath)) {
-            // Xóa poster cũ
+
+            // xóa poster cũ
             $oldPath = $uploadDir . $movie['Poster'];
-            if (file_exists($oldPath)) {
+            if (!empty($movie['Poster']) && file_exists($oldPath)) {
                 unlink($oldPath);
             }
+
+            $data['Poster'] = $posterName;
         } else {
             $error = "❌ Upload poster mới thất bại";
         }
     }
 
-    /* ===== UPDATE DB ===== */
+    /* ===== UPDATE DB QUA DATA ===== */
     if (!$error) {
-        $sql = "
-            UPDATE qlphim SET
-                TenPhim = ?,
-                TheLoai = ?,
-                QuocGia = ?,
-                ThoiLuong = ?,
-                NgayKhoiChieu = ?,
-                Poster = ?,
-                DaoDien = ?,
-                DienVien = ?,
-                TomTat = ?,
-                Rate = ?
-            WHERE IDPhim = ?
-        ";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "sssisssssii",
-            $tenPhim,
-            $theLoai,
-            $quocGia,
-            $thoiLuong,
-            $ngayKC,
-            $posterName,
-            $daoDien,
-            $dienVien,
-            $tomTat,
-            $rate,
-            $id
-        );
-        $stmt->execute();
-
+        $phimData->updateMovie($id, $data);
         header("Location: phimAdmin.php");
         exit();
     }
@@ -119,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Sửa phim</title>
 
-    <link rel="stylesheet" href="../../headfoot/header.css">
+    <link rel="stylesheet" href="../../headfoot/headerNV.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 

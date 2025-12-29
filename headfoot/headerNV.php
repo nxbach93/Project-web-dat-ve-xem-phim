@@ -6,19 +6,17 @@ if (session_status() === PHP_SESSION_NONE) {
 <header>
     <!-- Logo -->
     <h1>
-
-        <a href="/project/trangchu/formTrangChu.php">Cinemas</a>
+        <a href="/project/trangchu/formTrangChuNV.php">Cinemas</a>
     </h1>
 
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="/project/phim/phim.php">PHIM</a></li>
-            <li><a href="/project/rap/rap.php">RẠP</a></li>
-            <li><a href="/project/lichchieu/lichchieu.php">LỊCH CHIẾU</a></li>
-            <li><a href="/project/giave/giave.php">GIÁ VÉ</a></li>
-            <li><a href="/project/tintuc/tintuc.php">TIN TỨC</a></li>
-
+            <li><a href="/project/Staff/phim_admin/phimAdmin.php">Phim</a></li>
+            <li><a href="/project/rap/rapNV.php">Rạp</a></li>
+            <li><a href="/project/lichchieu/lichchieuNV.php">Lịch chiếu</a></li>
+            <li><a href="/project/giave/giaveNV.php">Giá vé</a></li>
+            <li><a href="/project/tintuc/tintucNV.php">Tin tức</a></li>
         </ul>
     </nav>
 

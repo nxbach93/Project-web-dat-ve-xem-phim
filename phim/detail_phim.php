@@ -62,9 +62,12 @@ $comments = $stmtCmt->get_result();
         >
         
         <p>
-            <button class="muave">
+            <a
+                href="ChonRap.php?idphim=<?= $movie['IDPhim'] ?>"
+                class="muave w-100"
+                >
                 Mua vé
-            </button>
+                </a>
         </p>
     </div>
 
