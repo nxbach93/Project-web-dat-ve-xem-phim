@@ -8,12 +8,17 @@
 
 body {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #111;
   color: #f5f5f5;
 =======
   background-color: #fff;
   color: #000;
 >>>>>>> origin/Form_LichChieu
+=======
+  background-color: #111;
+  color: #f5f5f5;
+>>>>>>> origin/Form_TinTucVaUuDai
   line-height: 1.6;
 }
 
@@ -26,6 +31,7 @@ a {
 /* ================= HEADER ================= */
 header {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #000; /* header màu đen */
   padding: 15px 30px;
   border-bottom: 2px solid #e50914;
@@ -34,6 +40,11 @@ header {
   padding: 15px 30px;
   border-bottom: 2px solid #e50914; /* gạch đỏ */
 >>>>>>> origin/Form_LichChieu
+=======
+  background-color: #000; /* header màu đen */
+  padding: 15px 30px;
+  border-bottom: 2px solid #e50914;
+>>>>>>> origin/Form_TinTucVaUuDai
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,11 +55,15 @@ header {
   z-index: 1000;
   height: 70px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Form_TinTucVaUuDai
 }
 
 /* Logo */
 header h1 {
   color: #e50914;
+<<<<<<< HEAD
 =======
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -57,6 +72,8 @@ header h1 {
 header h1 a {
   color: #e50914; /* màu logo đỏ */
 >>>>>>> origin/Form_LichChieu
+=======
+>>>>>>> origin/Form_TinTucVaUuDai
   font-size: 28px;
   font-weight: bold;
 }
@@ -70,10 +87,14 @@ nav ul {
 
 nav ul li a {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #f5f5f5;
 =======
   color: #000; /* chữ đen */
 >>>>>>> origin/Form_LichChieu
+=======
+  color: #f5f5f5;
+>>>>>>> origin/Form_TinTucVaUuDai
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
@@ -81,10 +102,14 @@ nav ul li a {
 
 nav ul li a:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #e50914;
 =======
   color: #e50914; /* đổi đỏ khi hover */
 >>>>>>> origin/Form_LichChieu
+=======
+  color: #e50914;
+>>>>>>> origin/Form_TinTucVaUuDai
 }
 
 /* ================= AUTH (Welcome + Logout) ================= */
@@ -98,6 +123,7 @@ nav ul li a:hover {
 
 .auth span {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #f5f5f5;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -105,6 +131,11 @@ nav ul li a:hover {
   color: #000; /* chữ đen */
   font-weight: 700;
 >>>>>>> origin/Form_LichChieu
+=======
+  color: #f5f5f5;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+>>>>>>> origin/Form_TinTucVaUuDai
 }
 
 .auth a {
@@ -113,19 +144,70 @@ nav ul li a:hover {
   padding: 6px 12px;
   border-radius: 6px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.05); /* nhẹ để nổi bật trên nền đen */
 =======
   background-color: rgba(0, 0, 0, 0.05); /* nhẹ để nổi bật */
 >>>>>>> origin/Form_LichChieu
+=======
+  background-color: rgba(255, 255, 255, 0.05); /* nhẹ để nổi bật trên nền đen */
+>>>>>>> origin/Form_TinTucVaUuDai
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .auth a:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   text-decoration: none;
 =======
 >>>>>>> origin/Form_LichChieu
+=======
+  text-decoration: none;
+>>>>>>> origin/Form_TinTucVaUuDai
   background-color: #e50914;
   color: #fff;
   transform: scale(1.05);
 }
+<<<<<<< HEAD
+=======
+
+/* ================= DROPDOWN MENU (ADMIN) ================= */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #1f1f1f;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  z-index: 1;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+.dropdown-content a {
+  color: #f5f5f5;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: transparent; /* Reset background của thẻ a trong auth */
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+>>>>>>> origin/Form_TinTucVaUuDai

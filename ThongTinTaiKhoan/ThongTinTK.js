@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     const editBtn = document.getElementById('editBtn');
     const saveBtn = document.getElementById('saveBtn');
@@ -33,4 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lưu ý: Không dùng e.preventDefault() hoàn toàn để dữ liệu được gửi về server
         console.log("Đang gửi dữ liệu cập nhật...");
     });
+=======
+document.addEventListener("DOMContentLoaded", function () {
+    const editBtn = document.getElementById("editBtn");
+    const saveBtn = document.getElementById("saveBtn");
+    const form = document.getElementById("profileForm");
+
+    if (editBtn && form) {
+        editBtn.addEventListener("click", function () {
+            // Bật chỉnh sửa input (xóa readonly)
+            form.querySelectorAll("input").forEach(input => {
+                input.removeAttribute("readonly");
+            });
+
+            // Bật chỉnh sửa select (xóa disabled)
+            form.querySelectorAll("select").forEach(select => {
+                select.disabled = false;
+            });
+
+            saveBtn.style.display = "inline-block";
+            editBtn.style.display = "none";
+        });
+    }
+>>>>>>> origin/Form_TinTucVaUuDai
 });
