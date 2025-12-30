@@ -15,7 +15,6 @@ session_start();
 <body>
 
 <?php include "../headfoot/header.php"; ?>
-
 <main class="home">
 
     <!-- HERO -->

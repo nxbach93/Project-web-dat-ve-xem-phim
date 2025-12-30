@@ -3,17 +3,11 @@ include "db.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-<<<<<<< HEAD
 include "db.php";
 
 /* kiểm tra submit */
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo "<script>alert('Không được truy cập trực tiếp file này'); window.location.href='formDangKyKH.php';</script>";
-=======
-/* kiểm tra submit */
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo "<script>alert('Không được truy cập trực tiếp file này'); window.location.href='formDangKy.php';</script>";
->>>>>>> origin/Form_TinTucVaUuDai
     exit();
 }
 
@@ -59,11 +53,7 @@ VALUES
 ";
 
 if (mysqli_query($conn, $sql_insert)) {
-<<<<<<< HEAD
     echo "<script>alert('✅ Đăng ký thành công'); window.location.href='formDangNhapKH.php';</script>";
-=======
-    echo "<script>alert('✅ Đăng ký thành công'); window.location.href='formDangNhap.php';</script>";
->>>>>>> origin/Form_TinTucVaUuDai
 } else {
     echo "<script>alert('Lỗi đăng ký: " . mysqli_error($conn) . "'); window.history.back();</script>";
 }
