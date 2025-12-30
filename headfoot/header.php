@@ -7,6 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <header>
     <!-- Logo -->
     <h1>
+<<<<<<< HEAD
         <a href="/project/formTrangChu.php">Cinemas</a>
 =======
 <!-- Header CSS -->
@@ -17,11 +18,16 @@ if (session_status() === PHP_SESSION_NONE) {
     <h1>
         <a href="/Mua_Ve_Di/trangchu/formTrangChu.php">Cinemas</a>
 >>>>>>> origin/Form_LichChieu
+=======
+
+        <a href="/project/trangchu/formTrangChu.php">Cinemas</a>
+>>>>>>> origin/Form_Phim
     </h1>
 
     <!-- Navigation -->
     <nav>
         <ul>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <li><a href="/project/phim/phim.php">Phim</a></li>
             <li><a href="/project/rap/rap.php">Rạp</a></li>
@@ -35,6 +41,14 @@ if (session_status() === PHP_SESSION_NONE) {
             <li><a href="/Mua_Ve_Di/giave/giave.php">Giá vé</a></li>
             <li><a href="/Mua_Ve_Di/tintuc/tintuc.php">Tin tức</a></li>
 >>>>>>> origin/Form_LichChieu
+=======
+            <li><a href="/project/phim/phim.php">PHIM</a></li>
+            <li><a href="/project/rap/rap.php">RẠP</a></li>
+            <li><a href="/project/lichchieu/lichchieu.php">LỊCH CHIẾU</a></li>
+            <li><a href="/project/giave/giave.php">GIÁ VÉ</a></li>
+            <li><a href="/project/tintuc/tintuc.php">TIN TỨC</a></li>
+
+>>>>>>> origin/Form_Phim
         </ul>
     </nav>
 

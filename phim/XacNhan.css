@@ -1,0 +1,57 @@
+body {
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.confirm-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #111;
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid #e50914;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #e50914;
+}
+
+.movie-box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.movie-box img {
+  width: 200px;
+  border-radius: 8px;
+  border: 2px solid #e50914;
+}
+
+.movie-info h3 {
+  margin-bottom: 10px;
+}
+
+.movie-info p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.btn-confirm {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-confirm:hover {
+  background: #ff1e2d;
+}

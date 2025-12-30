@@ -1,0 +1,142 @@
+.movie-detail {
+  display: flex;
+  gap: 30px;
+  padding-top: 120px; /* né header fixed */
+  color: #fff;
+}
+
+/* POSTER */
+.movie-poster img {
+  padding-left: 100px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.muave {
+  margin-left: 200px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.muave:hover {
+  background-color: #ffffff;
+  color: #e50914;
+  transform: scale(1.1);
+}
+
+/* INFO */
+.movie-info {
+  flex: 1;
+}
+
+.movie-info h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.movie-info p {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+.movie-info hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 15px 0;
+}
+/* Avatar dùng chung */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+/* Khung nhập comment */
+.comment-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.comment-input textarea {
+  width: 70%;
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-left: 10px;
+  border: none;
+  font-size: 14px;
+  resize: vertical;
+}
+.comment-input button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.comment-input button:hover {
+  background-color: #ffffff;
+  color: #e50914;
+  transform: scale(1.1);
+}
+
+/* Khung mỗi comment */
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Nội dung comment */
+.comment-content {
+  background: black;
+  padding: 3px 10px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+/* Text trong comment */
+.comment-content p {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Thời gian */
+.comment-content small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #777;
+}
+/* ================= SCROLL TO TOP ================= */
+#scrollToTopButton {
+  position: fixed;
+  bottom: 35px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s, transform 0.3s;
+}
+#scrollToTopButton:hover {
+  background-color: #ffffff;
+  color: #e50914;
+  transform: scale(1.1);
+}

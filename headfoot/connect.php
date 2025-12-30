@@ -1,9 +1,13 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 $conn = new mysqli("localhost", "root", "", "testdbproject");
 =======
 $conn = new mysqli("localhost", "root", "", "testdbproject2");
 >>>>>>> origin/Form_LichChieu
+=======
+$conn = new mysqli("localhost", "root", "", "testdbproject");
+>>>>>>> origin/Form_Phim
 if ($conn->connect_error) {
     die("Lỗi kết nối: " . $conn->connect_error);
 }
