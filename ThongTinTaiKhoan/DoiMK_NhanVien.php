@@ -9,9 +9,8 @@
     <title>Đổi mật khẩu</title>
 </head>
 <body>
-<<<<<<< HEAD
+
     <?php include "../headfoot/header.php"; ?>
-=======
     <?php include "../headfoot/headerNV.php"; ?>
     <?php
     include '../headfoot/connect.php';
@@ -47,17 +46,14 @@
         }
     }
     ?>
->>>>>>> origin/Form_TinTucVaUuDai
     <br><br><br><br><br><br>
     <div class="password-container">
     <div class="password-card">
         <h2 class="form-title">Đổi mật khẩu</h2>
         
-<<<<<<< HEAD
         <form action="process-change-password.php" method="POST">
-=======
+
         <form method="POST">
->>>>>>> origin/Form_TinTucVaUuDai
             <div class="form-group">
                 <label for="old_password">Mật khẩu cũ</label>
                 <input type="password" id="old_password" name="old_password" placeholder="Nhập mật khẩu cũ" required>

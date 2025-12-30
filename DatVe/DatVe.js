@@ -1,36 +1,85 @@
+/* DatVe.js */
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Thiết lập thời gian đếm ngược (đơn vị: giây)
-    const totalTime = 10 * 60; // 10 phút = 600 giây
-    const display = document.querySelector('#countdown'); // ID của thẻ hiển thị thời gian
+    
+    // === PHẦN 1: ĐỒNG HỒ ĐẾM NGƯỢC ===
+    const totalTime = 10 * 60; // 10 phút
+    const display = document.querySelector('#countdown'); 
 
-    // 2. Kiểm tra nếu đã có thời gian trong session (phòng trường hợp F5 trang)
-    let timeLeft = sessionStorage.getItem('timeLeft') 
-                   ? parseInt(sessionStorage.getItem('timeLeft')) 
-                   : totalTime;
+    // Lấy thời gian từ SessionStorage (để đồng bộ)
+    let timeLeft = sessionStorage.getItem('bookingTimeLeft');
+    if (!timeLeft) timeLeft = totalTime; 
 
-    const timerInterval = setInterval(function () {
+    // Hàm cập nhật đồng hồ
+    function updateTimer() {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
-
-        // Định dạng hiển thị 00:00
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
+        if (display) display.textContent = minutes + ":" + seconds;
 
-        // Lưu thời gian hiện tại vào session
-        sessionStorage.setItem('timeLeft', timeLeft);
+        sessionStorage.setItem('bookingTimeLeft', timeLeft);
 
-        // 3. Xử lý khi hết giờ
-        if (--timeLeft < 0) {
+        if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            sessionStorage.removeItem('timeLeft'); // Xóa thời gian đã lưu
-            
-            alert("Hết thời gian giữ ghế! Bạn sẽ quay lại trang chọn phim.");
-            
-            // Quay lại trang trước (form trước khi đặt vé)
-            window.history.back(); 
-            // Hoặc chuyển hướng cụ thể: window.location.href = 'trang_chu.php';
+            sessionStorage.removeItem('bookingTimeLeft');
+            alert("Hết thời gian giữ ghế! Trang sẽ tải lại.");
+            window.location.reload(); 
         }
-    }, 1000);
+        timeLeft--;
+    }
+
+    // Chạy ngay 1 lần để không bị delay 1s đầu
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+
+
+    // === PHẦN 2: LOGIC CHỌN GHẾ ===
+    const container = document.querySelector('.seat-map');
+    const displaySeats = document.getElementById('display-seats');
+    const displayPrice = document.getElementById('display-price');
+    const btnNext = document.getElementById('btnNext');
+
+    const inputGheID = document.getElementById('input-ghe-id');
+    const inputGheTen = document.getElementById('input-ghe-ten');
+    const inputTien = document.getElementById('input-tien');
+
+    if (container) {
+        container.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+                e.target.classList.toggle('selected');
+                updateSelectedInfo();
+            }
+        });
+    }
+
+    function updateSelectedInfo() {
+        const selectedSeats = document.querySelectorAll('.row .seat.selected');
+        const seatNames = [];
+        const seatIDs = [];
+        let totalPrice = 0;
+
+        selectedSeats.forEach(seat => {
+            seatNames.push(seat.getAttribute('data-name'));
+            seatIDs.push(seat.getAttribute('data-id'));
+            totalPrice += parseInt(seat.getAttribute('data-price'));
+        });
+
+        if (seatNames.length > 0) {
+            displaySeats.innerText = seatNames.join(', ');
+            btnNext.classList.add('active');
+            btnNext.disabled = false; // Mở khóa nút
+        } else {
+            displaySeats.innerText = '---';
+            btnNext.classList.remove('active');
+            btnNext.disabled = true; // Khóa nút
+        }
+
+        displayPrice.innerText = totalPrice.toLocaleString('vi-VN') + ' đ';
+
+        // Cập nhật vào input ẩn để gửi đi
+        inputGheID.value = seatIDs.join(',');
+        inputGheTen.value = seatNames.join(',');
+        inputTien.value = totalPrice;
+    }
 });

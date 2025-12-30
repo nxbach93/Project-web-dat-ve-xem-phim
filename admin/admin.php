@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../config/database.php";
+require_once '../headfoot/connect.php';
 
 // ===== Lấy danh sách rạp =====
 $rap_rs = $conn->query("SELECT IDRap, TenRap FROM rap ORDER BY TenRap ASC");

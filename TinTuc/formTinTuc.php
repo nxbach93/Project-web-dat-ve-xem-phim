@@ -46,7 +46,7 @@ if ($result) {
             <?php foreach ($news_list as $item): ?>
             <div class="news-item">
                 <div class="news-img">
-                    <img src="<?= htmlspecialchars($item['hinh_anh']) ?>" alt="<?= htmlspecialchars($item['tieu_de']) ?>" onerror="this.src='https://via.placeholder.com/400x250?text=News+Image'">
+                    <img src="<?= htmlspecialchars($item['hinh_anh']) ?>" alt="<?= htmlspecialchars($item['tieu_de']) ?>" onerror="this.src='../image/<?=$item['hinh_anh'] ?>';">
                 </div>
                 <div class="news-info">
                     <h3><?= htmlspecialchars($item['tieu_de']) ?></h3>

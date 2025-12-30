@@ -36,7 +36,7 @@ $tin = $result->fetch_assoc();
 <main class="detail-container">
     <div class="detail-card">
         <div class="detail-img">
-            <img src="<?= htmlspecialchars($tin['hinh_anh']) ?>" alt="<?= htmlspecialchars($tin['tieu_de']) ?>" onerror="this.src='https://via.placeholder.com/900x600?text=Image+Not+Found'">
+            <img src="<?= htmlspecialchars($tin['hinh_anh']) ?>" alt="<?= htmlspecialchars($tin['tieu_de']) ?>" onerror="this.src='../image/<?=$tin['hinh_anh'] ?>';">
         </div>
         <div class="detail-content">
             <h1><?= htmlspecialchars($tin['tieu_de']) ?></h1>
