@@ -1,7 +1,5 @@
 <?php
-session_start();
-$conn = new mysqli("localhost", "root", "", "testdbproject2");
-if($conn->connect_error) die("Lỗi kết nối DB: ".$conn->connect_error);
+require_once __DIR__ . "/../config/database.php";
 
 // ===== Lấy danh sách rạp =====
 $rap_rs = $conn->query("SELECT IDRap, TenRap FROM rap ORDER BY TenRap ASC");
