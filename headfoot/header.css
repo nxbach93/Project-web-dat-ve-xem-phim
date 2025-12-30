@@ -7,8 +7,13 @@
 }
 
 body {
+<<<<<<< HEAD
   background-color: #111;
   color: #f5f5f5;
+=======
+  background-color: #fff;
+  color: #000;
+>>>>>>> origin/Form_LichChieu
   line-height: 1.6;
 }
 
@@ -20,9 +25,15 @@ a {
 
 /* ================= HEADER ================= */
 header {
+<<<<<<< HEAD
   background-color: #000; /* header màu đen */
   padding: 15px 30px;
   border-bottom: 2px solid #e50914;
+=======
+  background-color: #fff; /* nền trắng */
+  padding: 15px 30px;
+  border-bottom: 2px solid #e50914; /* gạch đỏ */
+>>>>>>> origin/Form_LichChieu
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,11 +43,20 @@ header {
   right: 0;
   z-index: 1000;
   height: 70px;
+<<<<<<< HEAD
 }
 
 /* Logo */
 header h1 {
   color: #e50914;
+=======
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+header h1 a {
+  color: #e50914; /* màu logo đỏ */
+>>>>>>> origin/Form_LichChieu
   font-size: 28px;
   font-weight: bold;
 }
@@ -49,14 +69,22 @@ nav ul {
 }
 
 nav ul li a {
+<<<<<<< HEAD
   color: #f5f5f5;
+=======
+  color: #000; /* chữ đen */
+>>>>>>> origin/Form_LichChieu
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
 }
 
 nav ul li a:hover {
+<<<<<<< HEAD
   color: #e50914;
+=======
+  color: #e50914; /* đổi đỏ khi hover */
+>>>>>>> origin/Form_LichChieu
 }
 
 /* ================= AUTH (Welcome + Logout) ================= */
@@ -69,9 +97,14 @@ nav ul li a:hover {
 }
 
 .auth span {
+<<<<<<< HEAD
   color: #f5f5f5;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+=======
+  color: #000; /* chữ đen */
+  font-weight: 700;
+>>>>>>> origin/Form_LichChieu
 }
 
 .auth a {
@@ -79,12 +112,19 @@ nav ul li a:hover {
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 6px;
+<<<<<<< HEAD
   background-color: rgba(255, 255, 255, 0.05); /* nhẹ để nổi bật trên nền đen */
+=======
+  background-color: rgba(0, 0, 0, 0.05); /* nhẹ để nổi bật */
+>>>>>>> origin/Form_LichChieu
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .auth a:hover {
+<<<<<<< HEAD
   text-decoration: none;
+=======
+>>>>>>> origin/Form_LichChieu
   background-color: #e50914;
   color: #fff;
   transform: scale(1.05);
