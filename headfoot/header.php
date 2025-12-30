@@ -7,17 +7,17 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- Logo -->
     <h1>
 
-        <a href="/project/trangchu/formTrangChu.php">Cinemas</a>
+        <a href="/Project_Web/trangchu/formTrangChu.php">Cinemas</a>
     </h1>
 
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="/project/phim/phim.php">PHIM</a></li>
-            <li><a href="/project/rap/rap.php">RẠP</a></li>
-            <li><a href="/project/lichchieu/lichchieu.php">LỊCH CHIẾU</a></li>
-            <li><a href="/project/giave/giave.php">GIÁ VÉ</a></li>
-            <li><a href="/project/tintuc/tintuc.php">TIN TỨC</a></li>
+            <li><a href="/Project_Web/phim/phim.php">PHIM</a></li>
+            <li><a href="/Project_Web/rap/rap.php">RẠP</a></li>
+            <li><a href="/Project_Web/LichChieu/Form_LichChieu.php">LỊCH CHIẾU</a></li>
+            <li><a href="/Project_Web/Giave/giave.php">GIÁ VÉ</a></li>
+            <li><a href="/Project_Web/TinTuc/formTinTuc.php">TIN TỨC</a></li>
 
         </ul>
     </nav>
@@ -26,9 +26,9 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="auth">
         <?php if (isset($_SESSION['username'])): ?>
             <span>Welcome: <?= htmlspecialchars($_SESSION['username']) ?></span>
-            <a href="/project/logout.php">Đăng xuất</a>
+            <a href="/Project_Web/DangNhap/logout.php">Đăng xuất</a>
         <?php else: ?>
-            <a href="/project/login.php">Đăng nhập</a>
+            <a href="/Project_Web/DangNhap/formDangNhapKH.php">Đăng nhập</a>
         <?php endif; ?>
     </div>
 </header>

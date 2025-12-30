@@ -51,9 +51,9 @@ $today = date('Y-m-d');
                             while($phim = $result_phim->fetch_assoc()) {
                                 ?>
                                 <div class="movie-card">
-                                    <img src="<?php echo $phim['Poster']; ?>" alt="Poster">
+                                    <img src="../images/movie/<?php echo $phim['Poster']; ?>" alt="Poster">
                                     <p class="movie-name"><?php echo $phim['TenPhim']; ?></p>
-                                    <a href="../chitietphim.php?id=<?php echo $phim['IDPhim']; ?>" class="btn-detail">Chi tiết</a>
+                                    <a href="../phim/detail_phim.php?id=<?php echo $phim['IDPhim']; ?>" class="btn-detail">Chi tiết</a>
                                 </div>
                                 <?php
                             }

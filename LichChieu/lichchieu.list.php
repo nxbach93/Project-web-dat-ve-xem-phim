@@ -1,4 +1,3 @@
-
 <div class="phim-scroll-box">
 <div class="phim-list">
 
@@ -6,7 +5,7 @@
 <div class="phim-row">
 
     <div class="poster-box">
-        <img src="/Mua_Ve_Di/poster/<?= $p['Poster'] ?>" class="poster">
+        <img src="../images/movie/<?= $p['Poster'] ?>" class="poster">
     </div>
 
     <div class="phim-info">

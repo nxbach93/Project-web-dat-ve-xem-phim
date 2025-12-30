@@ -12,7 +12,7 @@ document.addEventListener("click", (e) => {
 function openModal(ten, poster, rap, ngay, gio, ghe) {
   document.getElementById("modal").style.display = "flex";
   document.getElementById("modal-ten").innerText = ten;
-  document.getElementById("modal-poster").src = "/Mua_Ve_Di/poster/" + poster;
+  document.getElementById("modal-poster").src = "../images/movie/" + poster;
   document.getElementById("modal-rap").innerText = "Rạp: " + rap;
   document.getElementById("modal-ngay").innerText = "Ngày: " + ngay;
   document.getElementById("modal-gio").innerText = "Giờ: " + gio;

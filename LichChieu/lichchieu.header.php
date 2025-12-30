@@ -1,7 +1,6 @@
 
 <div class="header">
-    <div class="logo">nhom3 cinemas</div>
-
+    <h2>LỊCH CHIẾU RẠP <?= htmlspecialchars($currentRapName) ?></h2>
     <div class="beta-rap-select">
         <div class="selected-rap" onclick="toggleRap()">
             <?= $currentRapName ?> ▼

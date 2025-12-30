@@ -1,104 +1,77 @@
 <?php
-require_once __DIR__ . "/../config/database.php";
+require "../headfoot/connect.php";
 
-// ================= LẤY DANH SÁCH RẠP =================
-$raps = [];
-$sqlRap = "SELECT IDRap, TenRap FROM rap ORDER BY TenRap";
-$rsRap = $conn->query($sqlRap);
+// ================= LẤY TẤT CẢ GIÁ VÉ =================
+// Truy vấn lấy toàn bộ dữ liệu từ bảng thongtinve
+$sqlGiaVe = "SELECT IDVe, LoaiVe, GiaNgayThuong, GiaUuDai, GiaNgayLe FROM thongtinve ORDER BY IDVe";
+$giaves = $conn->query($sqlGiaVe);
 
-while ($row = $rsRap->fetch_assoc()) {
-    $raps[] = $row;
+if (!$giaves) {
+    die("Lỗi truy vấn bảng thongtinve: " . $conn->error);
 }
-
-if (count($raps) == 0) {
-    die("Chưa có dữ liệu rạp");
-}
-
-// ================= RẠP ĐANG CHỌN =================
-$idrap = isset($_GET['idrap']) ? (int)$_GET['idrap'] : $raps[0]['IDRap'];
-
-// ================= LẤY GIÁ VÉ THEO RẠP =================
-$stmt = $conn->prepare("
-    SELECT LoaiVe, GiaNgayThuong, GiaUuDai, GiaNgayLe
-    FROM thongtinve
-    WHERE IDRap = ?
-    ORDER BY LoaiVe
-");
-$stmt->bind_param("i", $idrap);
-$stmt->execute();
-$giaves = $stmt->get_result();
 
 // ================= LẤY DANH SÁCH ĐỒ ĂN UỐNG =================
 $sqlDoAn = "SELECT TenDoAnUong, Gia, GiaUuDai FROM doanuong ORDER BY TenDoAnUong";
 $rsDoAn = $conn->query($sqlDoAn);
 $doanuongs = [];
-while ($row = $rsDoAn->fetch_assoc()) {
-    $doanuongs[] = $row;
+if ($rsDoAn) {
+    while ($row = $rsDoAn->fetch_assoc()) {
+        $doanuongs[] = $row;
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Giá vé & Đồ ăn uống</title>
-<!-- CSS RIÊNG -->
-<link rel="stylesheet" href="giave.css">
+    <meta charset="UTF-8">
+    <title>Bảng Giá Vé & Đồ Ăn</title>
+    <link rel="stylesheet" href="../headfoot/header.css">
+    <link rel="stylesheet" href="giave.css">
 </head>
 <body>
 
+<?php include "../headfoot/header.php"; ?>
+<br><br><br><br>
 <div class="container">
-    <h2>🎟️ GIÁ VÉ THEO RẠP</h2>
+    <h1 class="main-title">BẢNG GIÁ DỊCH VỤ</h1>
 
-    <!-- ===== CHỌN RẠP ===== -->
-    <div class="select-rap">
-        <form method="get">
-            <label>Chọn rạp:</label>
-            <select name="idrap" onchange="this.form.submit()">
-                <?php foreach ($raps as $r): ?>
-                    <option value="<?= $r['IDRap'] ?>" <?= $r['IDRap'] == $idrap ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($r['TenRap']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </form>
-    </div>
-
-    <!-- ===== BẢNG GIÁ VÉ ===== -->
+    <h2>🎟️ THÔNG TIN GIÁ VÉ</h2>
     <table>
         <thead>
             <tr>
                 <th>Loại vé</th>
-                <th>Ngày thường</th>
-                <th>Ưu đãi</th>
-                <th>Ngày lễ</th>
+                <th>Giá Ngày thường</th>
+                <th>Giá Ưu đãi</th>
+                <th>Giá Ngày lễ</th>
             </tr>
         </thead>
         <tbody>
         <?php if ($giaves->num_rows > 0): ?>
             <?php while ($g = $giaves->fetch_assoc()): ?>
                 <tr>
-                    <td><?= htmlspecialchars($g['LoaiVe']) ?></td>
-                    <td class="price"><?= number_format($g['GiaNgayThuong']) ?> đ</td>
-                    <td class="price"><?= number_format($g['GiaUuDai']) ?> đ</td>
-                    <td class="price"><?= number_format($g['GiaNgayLe']) ?> đ</td>
+                    <td><strong><?= htmlspecialchars($g['LoaiVe']) ?></strong></td>
+                    <td class="price"><?= number_format($g['GiaNgayThuong'], 0, ',', '.') ?> đ</td>
+                    <td class="price"><?= number_format($g['GiaUuDai'], 0, ',', '.') ?> đ</td>
+                    <td class="price"><?= number_format($g['GiaNgayLe'], 0, ',', '.') ?> đ</td>
                 </tr>
             <?php endwhile; ?>
         <?php else: ?>
             <tr>
-                <td colspan="4" class="empty">Chưa có dữ liệu giá vé</td>
+                <td colspan="4" class="empty">Chưa có dữ liệu giá vé trong hệ thống.</td>
             </tr>
         <?php endif; ?>
         </tbody>
     </table>
 
-    <!-- ===== BẢNG ĐỒ ĂN UỐNG ===== -->
-    <h2>🍿 ĐỒ ĂN UỐNG</h2>
+    <br><br>
+
+    <h2>🍿 DANH MỤC ĐỒ ĂN UỐNG</h2>
     <table>
         <thead>
             <tr>
-                <th>Tên đồ ăn</th>
-                <th>Giá thường</th>
-                <th>Giá ưu đãi</th>
+                <th>Tên Combo / Sản phẩm</th>
+                <th>Giá Niêm yết</th>
+                <th>Giá Ưu đãi</th>
             </tr>
         </thead>
         <tbody>
@@ -106,18 +79,17 @@ while ($row = $rsDoAn->fetch_assoc()) {
             <?php foreach ($doanuongs as $d): ?>
             <tr>
                 <td><?= htmlspecialchars($d['TenDoAnUong']) ?></td>
-                <td class="price"><?= number_format($d['Gia']) ?> đ</td>
-                <td class="price"><?= number_format($d['GiaUuDai']) ?> đ</td>
+                <td class="price"><?= number_format($d['Gia'], 0, ',', '.') ?> đ</td>
+                <td class="price"><?= number_format($d['GiaUuDai'], 0, ',', '.') ?> đ</td>
             </tr>
             <?php endforeach; ?>
         <?php else: ?>
             <tr>
-                <td colspan="3" class="empty">Chưa có dữ liệu đồ ăn uống</td>
+                <td colspan="3" class="empty">Chưa có dữ liệu đồ ăn uống.</td>
             </tr>
         <?php endif; ?>
         </tbody>
     </table>
-
 </div>
 
 </body>

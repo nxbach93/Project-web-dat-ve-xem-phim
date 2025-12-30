@@ -1,101 +1,57 @@
+<?php
+session_start();
+require_once "../headfoot/connect.php";
+
+// 1. Kiểm tra ID lịch chiếu từ URL
+$idlc = isset($_GET['idlc']) ? intval($_GET['idlc']) : 0;
+
+if ($idlc <= 0) {
+    die("Lỗi: Không nhận được ID lịch chiếu hợp lệ từ trình duyệt. (ID hiện tại: $idlc)");
+}
+
+// 2. TRUY VẤN KIỂM TRA TỪNG BƯỚC (Để tìm lỗi nằm ở bảng nào)
+// Bước A: Kiểm tra xem IDLichChieu có tồn tại không
+$check_lc = $conn->query("SELECT * FROM qllichchieu WHERE IDLichChieu = $idlc");
+$lc_data = $check_lc->fetch_assoc();
+
+if (!$lc_data) {
+    die("Lỗi: IDLichChieu = $idlc không tồn tại trong bảng 'qllichchieu'. Hãy kiểm tra lại database.");
+}
+
+// Bước B: Nếu có Lịch chiếu, lấy thông tin đầy đủ bằng JOIN
+$sql = "SELECT lc.*, p.*, r.TenRap, r.DiaChi 
+        FROM qllichchieu lc
+        INNER JOIN qlphim p ON lc.IDPhim = p.IDPhim
+        INNER JOIN rap r ON lc.IDRap = r.IDRap
+        WHERE lc.IDLichChieu = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $idlc);
+$stmt->execute();
+$data = $stmt->get_result()->fetch_assoc();
+
+// Bước C: Nếu Bước A có mà Bước B rỗng => Sai lệch khóa ngoại
+if (!$data) {
+    echo "<h3>Lỗi ràng buộc dữ liệu:</h3>";
+    echo "- IDPhim trong lịch chiếu là: " . $lc_data['IDPhim'] . " (Kiểm tra xem mã này có trong bảng 'qlphim' không?) <br>";
+    echo "- IDRap trong lịch chiếu là: " . $lc_data['IDRap'] . " (Kiểm tra xem mã này có trong bảng 'rap' không?) <br>";
+    die("Dữ liệu JOIN bị rỗng do thiếu thông tin ở bảng Phim hoặc Rạp.");
+}
+
+// 3. LẤY GIÁ VÉ (Giả sử lấy từ bảng thongtinve)
+$gia_ve = 0;
+$gia_query = $conn->query("SELECT GiaNgayThuong FROM thongtinve LIMIT 1");
+if ($gia_query && $row_gia = $gia_query->fetch_assoc()) {
+    $gia_ve = $row_gia['GiaNgayThuong'];
+}
+
+$hang_ghe = ['A', 'B', 'C', 'D', 'E'];
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../headfoot/header.css">
     <link rel="stylesheet" href="DatVe.css">
-    <script src="DatVe.js"></script>
-    <title>Đặt vé</title>
-</head>
-<body>
-    <?php include "../headfoot/header.php"; ?>
-    <br><br><br><br>
-    <div class="booking-container">
-    <div class="seat-selection">
-        <div class="legend">
-            <div class="item"><span class="seat"></span> Ghế trống</div>
-            <div class="item"><span class="seat selected"></span> Ghế đang chọn</div>
-            <div class="item"><span class="seat holding"></span> Ghế đang giữ</div>
-            <div class="item"><span class="seat occupied"></span> Ghế đã bán</div>
-        </div>
-
-        <div class="screen">MÀN HÌNH</div>
-        
-        <div class="seat-map">
-            <div class="row-A">
-                <div class="seat">A1</div>
-                <div class="seat occupied">A2</div>
-                <div class="seat selected">A3</div>
-                <div class="seat">A4</div>
-                <div class="seat">A5</div>
-                <div class="seat occupied">A6</div>
-                <div class="seat selected">A7</div>
-                <div class="seat">A8</div>
-            </div>
-            <div class="row-B">
-                <div class="seat">B1</div>
-                <div class="seat occupied">B2</div>
-                <div class="seat selected">B3</div>
-                <div class="seat">B4</div>
-                <div class="seat">B5</div>
-                <div class="seat occupied">B6</div>
-                <div class="seat selected">B7</div>
-                <div class="seat">B8</div>
-            </div>
-            <div class="row-C">
-                <div class="seat">C1</div>
-                <div class="seat occupied">C2</div>
-                <div class="seat selected">C3</div>
-                <div class="seat holding">C4</div>
-                <div class="seat">C5</div>
-                <div class="seat occupied">C6</div>
-                <div class="seat selected">C7</div>
-                <div class="seat">C8</div>
-            </div>
-            <div class="row-D">
-                <div class="seat">D1</div>
-                <div class="seat occupied">D2</div>
-                <div class="seat selected">D3</div>
-                <div class="seat holding">D4</div>
-                <div class="seat">D5</div>
-                <div class="seat occupied">D6</div>
-                <div class="seat selected">D7</div>
-                <div class="seat">D8</div>
-            </div>
-            <div class="row-E">
-                <div class="seat">E1</div>
-                <div class="seat occupied">E2</div>
-                <div class="seat selected">E3</div>
-                <div class="seat holding">E4</div>
-                <div class="seat">E5</div>
-                <div class="seat occupied">E6</div>
-                <div class="seat selected">E7</div>
-                <div class="seat">E8</div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="booking-summary">
-        <h2 class="movie-title">AVATAR: DÒNG CHẢY CỦA NƯỚC</h2>
-        <div class="info-item"><span>Rạp:</span> Cinemas Thái Nguyên</div>
-        <div class="info-item"><span>Suất chiếu:</span> 19:00 | 23/12/2025</div>
-        <div class="info-item"><span>Ghế chọn:</span> <b id="selected-seats-list">G5</b></div>
-        
-        <hr>
-        
-        <div class="total-section">
-            <p>Tổng tiền:</p>
-            <h3 id="total-price">120,000 VND</h3>
-        </div>
-
-        <div class="timer-section">
-            Thời gian còn lại: <span id="countdown">10:00</span>
-        </div>
-
-        <button class="btn-continue">TIẾP TỤC</button>
-    </div>
-</div>
-</body>
-</html>
+    <link rel="stylesheet" href="

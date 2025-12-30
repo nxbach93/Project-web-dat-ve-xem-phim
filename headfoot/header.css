@@ -7,18 +7,8 @@
 }
 
 body {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  background-color: #111;
-  color: #f5f5f5;
-=======
-  background-color: #fff;
-  color: #000;
->>>>>>> origin/Form_LichChieu
-=======
-  background-color: #111;
-  color: #f5f5f5;
->>>>>>> origin/Form_TinTucVaUuDai
+  background-color: #111; /* Chọn nền đen cho rạp phim */
+  color: #f5f5f5;         /* Chữ trắng */
   line-height: 1.6;
 }
 
@@ -30,21 +20,9 @@ a {
 
 /* ================= HEADER ================= */
 header {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  background-color: #000; /* header màu đen */
+  background-color: #000; /* Header đen */
   padding: 15px 30px;
-  border-bottom: 2px solid #e50914;
-=======
-  background-color: #fff; /* nền trắng */
-  padding: 15px 30px;
-  border-bottom: 2px solid #e50914; /* gạch đỏ */
->>>>>>> origin/Form_LichChieu
-=======
-  background-color: #000; /* header màu đen */
-  padding: 15px 30px;
-  border-bottom: 2px solid #e50914;
->>>>>>> origin/Form_TinTucVaUuDai
+  border-bottom: 2px solid #e50914; /* Viền đỏ đặc trưng */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,26 +32,12 @@ header {
   right: 0;
   z-index: 1000;
   height: 70px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/Form_TinTucVaUuDai
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Thêm bóng mờ cho đẹp */
 }
 
 /* Logo */
 header h1 {
   color: #e50914;
-<<<<<<< HEAD
-=======
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo */
-header h1 a {
-  color: #e50914; /* màu logo đỏ */
->>>>>>> origin/Form_LichChieu
-=======
->>>>>>> origin/Form_TinTucVaUuDai
   font-size: 28px;
   font-weight: bold;
 }
@@ -86,30 +50,14 @@ nav ul {
 }
 
 nav ul li a {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #f5f5f5;
-=======
-  color: #000; /* chữ đen */
->>>>>>> origin/Form_LichChieu
-=======
-  color: #f5f5f5;
->>>>>>> origin/Form_TinTucVaUuDai
+  color: #f5f5f5; /* Link màu trắng */
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
 }
 
 nav ul li a:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #e50914;
-=======
-  color: #e50914; /* đổi đỏ khi hover */
->>>>>>> origin/Form_LichChieu
-=======
-  color: #e50914;
->>>>>>> origin/Form_TinTucVaUuDai
+  color: #e50914; /* Hover màu đỏ */
 }
 
 /* ================= AUTH (Welcome + Logout) ================= */
@@ -122,20 +70,9 @@ nav ul li a:hover {
 }
 
 .auth span {
-<<<<<<< HEAD
-<<<<<<< HEAD
   color: #f5f5f5;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-=======
-  color: #000; /* chữ đen */
-  font-weight: 700;
->>>>>>> origin/Form_LichChieu
-=======
-  color: #f5f5f5;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
->>>>>>> origin/Form_TinTucVaUuDai
 }
 
 .auth a {
@@ -143,35 +80,19 @@ nav ul li a:hover {
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 6px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  background-color: rgba(255, 255, 255, 0.05); /* nhẹ để nổi bật trên nền đen */
-=======
-  background-color: rgba(0, 0, 0, 0.05); /* nhẹ để nổi bật */
->>>>>>> origin/Form_LichChieu
-=======
-  background-color: rgba(255, 255, 255, 0.05); /* nhẹ để nổi bật trên nền đen */
->>>>>>> origin/Form_TinTucVaUuDai
+  background-color: rgba(255, 255, 255, 0.05); /* Nền mờ nhẹ */
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .auth a:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
   text-decoration: none;
-=======
->>>>>>> origin/Form_LichChieu
-=======
-  text-decoration: none;
->>>>>>> origin/Form_TinTucVaUuDai
   background-color: #e50914;
   color: #fff;
   transform: scale(1.05);
 }
-<<<<<<< HEAD
-=======
 
 /* ================= DROPDOWN MENU (ADMIN) ================= */
+/* Giữ lại phần này từ nhánh TinTucVaUuDai */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -198,7 +119,7 @@ nav ul li a:hover {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  background-color: transparent; /* Reset background của thẻ a trong auth */
+  background-color: transparent;
   text-align: left;
 }
 
@@ -210,4 +131,3 @@ nav ul li a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
->>>>>>> origin/Form_TinTucVaUuDai
