@@ -1,14 +1,10 @@
-/* DatVeB2.js */
 
-// === 1. LOGIC ĐỒNG HỒ ĐẾM NGƯỢC (Giữ thời gian từ B1) ===
 document.addEventListener('DOMContentLoaded', function () {
     const totalTime = 10 * 60; // 10 phút
     const display = document.querySelector('#countdown');
 
-    // Lấy thời gian từ SessionStorage (đã được lưu ở DatVeb1)
     let timeLeft = sessionStorage.getItem('bookingTimeLeft');
 
-    // Nếu không có (vào thẳng trang này hoặc đã reset), lấy 10 phút
     if (!timeLeft) {
         timeLeft = totalTime;
     } else {
@@ -24,14 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (display) display.textContent = minutes + ":" + seconds;
 
-        // Lưu lại thời gian
         sessionStorage.setItem('bookingTimeLeft', timeLeft);
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             sessionStorage.removeItem('bookingTimeLeft');
             alert("Hết thời gian giữ vé! Vui lòng đặt lại.");
-            window.location.href = "../LichChieu/Form_LichChieu.php"; // Quay về trang lịch chiếu
+            window.location.href = "../LichChieu/Form_LichChieu.php"; 
         }
         timeLeft--;
     }
@@ -41,15 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// === 2. LOGIC TÍNH TIỀN COMBO & TỔNG CỘNG ===
-
 function updateQty(btn, change, price) {
     let container = btn.parentElement;
     let input = container.querySelector('.qty-input');
     let currentQty = parseInt(input.value);
     let newQty = currentQty + change;
 
-    // Không cho số lượng âm
     if (newQty >= 0) {
         input.value = newQty;
         recalculateTotal();

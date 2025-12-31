@@ -13,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li><a href="/Project_Web/Staff/phim_admin/phimAdmin.php">Phim</a></li>
             <li><a href="/Project_Web/rap/rapNV.php">Rạp</a></li>
             <li><a href="/Project_Web/Admin/admin.php">Lịch chiếu</a></li>
-            <li><a href="/Project_Web/giave/giaveNV.php">Giá vé</a></li>
+            <li><a href="/Project_Web/Giave/admin_giave_doanuong_modal.php">Giá vé</a></li>
             <li><a href="/Project_Web/tintuc/tintucNV.php">Tin tức</a></li>
         </ul>
     </nav>

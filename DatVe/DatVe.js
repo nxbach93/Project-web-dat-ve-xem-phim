@@ -1,11 +1,11 @@
-/* DatVe.js */
+
 document.addEventListener('DOMContentLoaded', function () {
 
     const totalTime = 10 * 60; // 10 phút
     const display = document.querySelector('#countdown'); 
 
     let timeLeft = sessionStorage.getItem('bookingTimeLeft');
-    if (!timeLeft) timeLeft = totalTime; 
+    if (!timeLeft) timeLeft = totalTime;
 
     function updateTimer() {
         let minutes = Math.floor(timeLeft / 60);
