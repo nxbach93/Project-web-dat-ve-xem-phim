@@ -3,13 +3,11 @@ require_once '../../headfoot/connect.php';
 require_once '../../Data/PhimData.php';
 session_start();
 
-/* ================= CHECK LOGIN ================= */
 if (!isset($_SESSION['LoaiTK'])) {
     header("Location: ../login.php");
     exit();
 }
 
-/* ================= CHECK QUYỀN ================= */
 if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
     echo "❌ Bạn không có quyền sửa phim";
     exit();
@@ -17,7 +15,6 @@ if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
 
 $phimData = new PhimData($conn);
 
-/* ================= CHECK ID ================= */
 if (!isset($_GET['id'])) {
     header("Location: phimAdmin.php");
     exit();
@@ -25,7 +22,6 @@ if (!isset($_GET['id'])) {
 
 $id = (int)$_GET['id'];
 
-/* ================= LẤY PHIM ================= */
 $movie = $phimData->getMovieById($id);
 if (!$movie) {
     header("Location: phimAdmin.php");
@@ -34,7 +30,6 @@ if (!$movie) {
 
 $error = null;
 
-/* ================= UPDATE ================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* ===== LẤY DATA ===== */
@@ -48,11 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'DienVien'      => $_POST['DienVien'],
         'TomTat'        => $_POST['TomTat'],
         'Rate'          => $_POST['Rate'],
-        'TongGhe'       => $movie['TongGhe'], // giữ nguyên
+        'TongGhe'       => $movie['TongGhe'],
         'Poster'        => $movie['Poster']
     ];
 
-    /* ===== XỬ LÝ POSTER ===== */
     if (!empty($_FILES['Poster']['name'])) {
 
         $posterName = time() . '_' . basename($_FILES['Poster']['name']);
@@ -65,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (move_uploaded_file($_FILES['Poster']['tmp_name'], $uploadPath)) {
 
-            // xóa poster cũ
             $oldPath = $uploadDir . $movie['Poster'];
             if (!empty($movie['Poster']) && file_exists($oldPath)) {
                 unlink($oldPath);
@@ -77,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    /* ===== UPDATE DB QUA DATA ===== */
     if (!$error) {
         $phimData->updateMovie($id, $data);
         header("Location: phimAdmin.php");

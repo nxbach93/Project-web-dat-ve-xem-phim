@@ -2,7 +2,6 @@
 $conn = new mysqli("localhost", "root", "", "testdbproject2");
 $conn->set_charset("utf8mb4");
 
-// Thêm/Sửa/Xóa giá vé và đồ ăn uống
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 if($action=='add_ve'){

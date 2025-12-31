@@ -1,4 +1,4 @@
-/* DatVe.css */
+
 body { 
     background-color: #111; 
     color: white; 
@@ -67,7 +67,6 @@ body {
     transform: scale(1.1); 
 }
 
-/* GHẾ ĐANG CHỌN: MÀU ĐỎ */
 .seat.selected { 
     background-color: #e50914; 
     color: white; 
@@ -76,7 +75,6 @@ body {
     border: 1px solid #ff3333;
 }
 
-/* GHẾ ĐÃ BÁN: KHÔNG CHỌN ĐƯỢC */
 .seat.occupied { 
     background-color: #fff; 
     color: #000; 

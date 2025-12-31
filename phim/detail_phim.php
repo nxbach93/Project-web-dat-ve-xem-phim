@@ -1,7 +1,6 @@
 <?php
 require "../headfoot/connect.php";
 
-/* ===== CHECK ID ===== */
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: phim.php");
     exit();
@@ -9,7 +8,6 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id = (int)$_GET['id'];
 
-/* ===== GET MOVIE ===== */
 $sql = "SELECT * FROM qlphim WHERE IDPhim = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
@@ -21,11 +19,9 @@ if (!$movie) {
     exit();
 }
 
-/* ===== FILTER COMMENT ===== */
 $filter = $_GET['filter'] ?? 'newest';
 $order = ($filter === 'oldest') ? 'ASC' : 'DESC';
 
-/* ===== GET COMMENT ===== */
 $sqlComment = "
     SELECT * FROM comment 
     WHERE IDPhim = ?
@@ -54,7 +50,6 @@ $comments = $stmtCmt->get_result();
 
 <div class="movie-detail">
 
-    <!-- POSTER -->
     <div class="movie-poster">
         <img 
             src="../images/movie/<?= htmlspecialchars($movie['Poster']) ?>" 
@@ -71,7 +66,6 @@ $comments = $stmtCmt->get_result();
         </p>
     </div>
 
-    <!-- INFO -->
     <div class="movie-info">
         <h2><?= htmlspecialchars($movie['TenPhim']) ?></h2>
 
@@ -90,10 +84,8 @@ $comments = $stmtCmt->get_result();
 
         <hr>
 
-        <!-- COMMENT SECTION -->
         <h4>💬 Bình luận</h4>
 
-        <!-- FILTER -->
         <form method="get" class="comment-filter">
             <input type="hidden" name="id" value="<?= $id ?>">
             <select name="filter" onchange="this.form.submit()">
@@ -106,7 +98,6 @@ $comments = $stmtCmt->get_result();
             </select>
         </form>
 
-        <!-- ADD COMMENT -->
         <form action="addcomment.php" method="post" class="comment-form">
             <input type="hidden" name="movie_id" value="<?= $id ?>">
 
@@ -123,7 +114,6 @@ $comments = $stmtCmt->get_result();
             </div>
         </form>
 
-        <!-- COMMENT LIST -->
         <div class="comment-list">
             <?php if ($comments->num_rows > 0): ?>
                 <?php while ($c = $comments->fetch_assoc()): ?>

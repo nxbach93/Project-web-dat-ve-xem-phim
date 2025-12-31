@@ -2,7 +2,7 @@
 <div class="phim-list">
 
 <?php 
-// Reset con trỏ dữ liệu phim về đầu
+
 if ($phim_rs && $phim_rs->num_rows > 0) {
     $phim_rs->data_seek(0);
 
@@ -22,7 +22,6 @@ if ($phim_rs && $phim_rs->num_rows > 0) {
 
             <div class="gio-grid">
             <?php
-            // Lấy IDLichChieu, GioChieu từ database
             $sql_gio = "SELECT IDLichChieu, GioChieu 
                         FROM qllichchieu 
                         WHERE IDRap = $selectedRap 
@@ -37,7 +36,6 @@ if ($phim_rs && $phim_rs->num_rows > 0) {
                     echo "<p style='color:#999; font-size:0.9em;'>Không có suất chiếu</p>";
                 }
                 while ($g = $gio_rs->fetch_assoc()):
-                    // Đếm ghế trống
                     $ghe_rs = $conn->query("SELECT COUNT(*) AS c FROM qlghengoi WHERE TrangThai = 0");
                     $soGhe = ($ghe_rs) ? $ghe_rs->fetch_assoc()['c'] : 0;
                     

@@ -2,19 +2,16 @@
 session_start();
 require_once "../headfoot/connect.php";
 
-// 1. KIỂM TRA DỮ LIỆU TỪ BƯỚC 1 (Nếu không có dữ liệu thì đẩy về trang chủ)
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['idlc'])) {
     header("Location: ../trangchu/index.php");
     exit();
 }
 
-// 2. NHẬN DỮ LIỆU POST
 $idlc = intval($_POST['idlc']);
-$ds_ghe_id = $_POST['ds_ghe_id'];   // Ví dụ: 12,13
-$ds_ghe_ten = $_POST['ds_ghe_ten']; // Ví dụ: A1, A2
+$ds_ghe_id = $_POST['ds_ghe_id']; 
+$ds_ghe_ten = $_POST['ds_ghe_ten'];
 $tong_tien_ghe = intval($_POST['tong_tien']); 
 
-// 3. LẤY THÔNG TIN PHIM & RẠP
 $sql_info = "SELECT lc.*, p.TenPhim, p.Poster, r.TenRap 
              FROM qllichchieu lc
              JOIN qlphim p ON lc.IDPhim = p.IDPhim
@@ -25,7 +22,7 @@ $stmt->bind_param("i", $idlc);
 $stmt->execute();
 $data = $stmt->get_result()->fetch_assoc();
 
-// 4. LẤY THÔNG TIN USER (Tự điền nếu đã đăng nhập)
+
 $u_name = ""; $u_phone = ""; $u_email = "";
 if(isset($_SESSION['username'])) {
     $user_q = $conn->query("SELECT * FROM quanlytaikhoan WHERE TenDangNhap='".$_SESSION['username']."'");
@@ -36,9 +33,9 @@ if(isset($_SESSION['username'])) {
     }
 }
 
-// 5. LẤY DANH SÁCH COMBO TỪ DATABASE
+
 $combos = [];
-// Lưu ý: Kiểm tra tên bảng của bạn là 'dichvu' hay 'combo'
+
 $cb_query = $conn->query("SELECT * FROM dichvu WHERE LoaiDV = 'DoAn'"); 
 if($cb_query){
     while($row = $cb_query->fetch_assoc()) $combos[] = $row;

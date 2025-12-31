@@ -1,7 +1,6 @@
 <?php
 require "../headfoot/connect.php";
 
-/* ===== LẤY 3 RẠP ===== */
 $raps = [];
 $rap_rs = $conn->query("SELECT IDRap, TenRap FROM rap ORDER BY IDRap");
 while ($r = $rap_rs->fetch_assoc()) $raps[] = $r;

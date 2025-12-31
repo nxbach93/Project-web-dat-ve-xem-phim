@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . "/../config/database.php";
-// Lấy danh sách giá vé
+
 $giaves = $conn->query("SELECT * FROM thongtinve ORDER BY LoaiVe");
 
-// Lấy danh sách đồ ăn uống
+
 $doanuongs = $conn->query("SELECT * FROM doanuong ORDER BY TenDoAnUong");
 
-// Lấy danh sách rạp
+
 $raps = $conn->query("SELECT IDRap, TenRap FROM rap ORDER BY TenRap");
 $rapsArr = [];
 while($r = $raps->fetch_assoc()){
@@ -24,7 +24,7 @@ while($r = $raps->fetch_assoc()){
 <div class="container">
     <h1>🎟️ Quản lý Giá Vé & Đồ Ăn Uống</h1>
 
-    <!-- ===== GIÁ VÉ ===== -->
+
     <h2>🎫 Giá Vé</h2>
     <button class="btn add" onclick="openModal('add_ve')">➕ Thêm giá vé</button>
     <table>
@@ -97,7 +97,6 @@ while($r = $raps->fetch_assoc()){
     </table>
 </div>
 
-<!-- Modal Thêm/Sửa -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>

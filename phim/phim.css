@@ -1,4 +1,4 @@
-/* ================= RESET NHẸ ================= */
+
 * {
   box-sizing: border-box;
 }
@@ -6,14 +6,12 @@ body {
   background-color: black;
 }
 
-/* ================= MAIN ================= */
-/* vì header fixed */
+
 main.movie-list {
   padding-top: 70px;
   padding-bottom: 60px;
 }
 
-/* ================= MOVIE GRID ================= */
 .movie-card {
   background-color: #0b1a2d;
   border-radius: 10px;
@@ -29,7 +27,6 @@ main.movie-list {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ================= POSTER ================= */
 .poster {
   width: 100%;
   height: 320px;
@@ -43,7 +40,6 @@ main.movie-list {
   transform: scale(1.05);
 }
 
-/* ================= TEXT ================= */
 .movie-card h5 {
   font-size: 18px;
   margin: 10px 0 6px;
@@ -56,7 +52,6 @@ main.movie-list {
   margin-bottom: 12px;
 }
 
-/* ================= BUTTON ================= */
 .movie-card .btn {
   font-size: 14px;
   font-weight: 600;
@@ -70,7 +65,6 @@ main.movie-list {
   transform: scale(1.1);
 }
 
-/* ================= SCROLL TO TOP ================= */
 #scrollToTopButton {
   position: fixed;
   bottom: 35px;
@@ -93,7 +87,6 @@ main.movie-list {
   transform: scale(1.1);
 }
 
-/* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
   .poster {
     height: 280px;
@@ -115,7 +108,7 @@ main.movie-list {
     height: 240px;
   }
 }
-/* ================= FILTER BAR ================= */
+
 .movie-filter {
   border-radius: 6px;
   padding-left: 40px;
@@ -205,7 +198,6 @@ main.movie-list {
   background: #e50914;
 }
 
-/* ================= CATEGORY TITLE FULL WIDTH ================= */
 .category-title {
   width: 100%;
   background-color: #000;
@@ -215,7 +207,6 @@ main.movie-list {
   border-radius: 10px;
 }
 
-/* thanh đỏ bên trái */
 .category-title::before {
   content: "";
   position: absolute;
@@ -227,7 +218,6 @@ main.movie-list {
   border-radius: 20px;
 }
 
-/* chữ */
 .category-title span {
   color: #fff;
   font-size: 22px;

@@ -2,36 +2,36 @@
 require_once '../../headfoot/connect.php';
 session_start();
 
-/* ================= CHECK LOGIN ================= */
-if (!isset($_SESSION['LoaiTK'])) {
-    header("Location: ../login.php");
-    exit();
-}
+// /* ================= CHECK LOGIN ================= */
+// if (!isset($_SESSION['LoaiTK'])) {
+//     header("Location: ../login.php");
+//     exit();
+// }
 
-/* ================= CHECK QUYỀN ================= */
-/*
-  admin  → full quyền
-  staff  → thêm, sửa (KHÔNG xóa)
-  user   → cấm
-*/
-if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
-    echo "❌ Bạn không có quyền truy cập trang này";
-    exit();
-}
+// /* ================= CHECK QUYỀN ================= */
+// /*
+//   admin  → full quyền
+//   staff  → thêm, sửa (KHÔNG xóa)
+//   user   → cấm
+// */
+// if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
+//     echo "❌ Bạn không có quyền truy cập trang này";
+//     exit();
+// }
 
-$isAdmin = ($_SESSION['LoaiTK'] === 'admin');
+// $isAdmin = ($_SESSION['LoaiTK'] === 'admin');
 
-/* ================= XÓA PHIM (CHỈ ADMIN) ================= */
-if ($isAdmin && isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $id = (int) $_GET['delete'];
+// /* ================= XÓA PHIM (CHỈ ADMIN) ================= */
+// if ($isAdmin && isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+//     $id = (int) $_GET['delete'];
 
-    $stmt = $conn->prepare("DELETE FROM qlphim WHERE IDPhim = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
+//     $stmt = $conn->prepare("DELETE FROM qlphim WHERE IDPhim = ?");
+//     $stmt->bind_param("i", $id);
+//     $stmt->execute();
 
-    header("Location: phimAdmin.php");
-    exit();
-}
+//     header("Location: phimAdmin.php");
+//     exit();
+// }
 
 /* ================= LẤY DANH SÁCH PHIM ================= */
 $sql = "SELECT * FROM qlphim ORDER BY IDPhim DESC";
@@ -44,13 +44,14 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <title>Quản lý phim</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../headfoot/header.css">
-    <link rel="stylesheet" href="phimAdmin.css">
+    
 
     <!-- Bootstrap + FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../headfoot/header.css">
+    <link rel="stylesheet" href="phimAdmin.css">
 </head>
 
 <body>
@@ -108,13 +109,13 @@ $result = $conn->query($sql);
                         </a>
 
                         <!-- XÓA (CHỈ ADMIN) -->
-                        <?php if ($isAdmin): ?>
+                        <?php  ?>
                             <a href="phimAdmin.php?delete=<?= $row['IDPhim'] ?>"
                                onclick="return confirm('Bạn có chắc muốn xóa phim này?');"
                                class="btn btn-danger w-100">
                                 <i class="fas fa-trash"></i> Xóa
                             </a>
-                        <?php endif; ?>
+                        <?php  ?>
                     </div>
 
                 </div>

@@ -6,7 +6,6 @@ $user = $_POST['username'];
 $pass = $_POST['password'];
 $role = $_POST['role'];
 
-// SỬA TẠI ĐÂY: Thêm tk.IDTK vào danh sách SELECT
 $sql = "
 SELECT tk.IDTK, tk.TenDangNhap, tk.IDQuyen, q.LoaiTK
 FROM quanlytaikhoan tk
@@ -29,9 +28,6 @@ $data = mysqli_fetch_assoc($result);
 
 $_SESSION['username'] = $user;
 $_SESSION['user_id']  = $data['IDTK']; 
-
-// Kiểm tra thử (Debug) - Bạn có thể bỏ dòng này sau khi chạy tốt
-// die("Đã lưu ID: " . $_SESSION['user_id']);
 
 if ($role === 'customer' && $data['IDQuyen'] == 3) {
     echo "<script>

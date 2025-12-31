@@ -6,7 +6,6 @@ class DataRap {
         $this->conn = $conn;
     }
 
-    // Lấy tất cả rạp
     public function getAll(): array {
         $sql = "SELECT * FROM rap";
         $stmt = $this->conn->prepare($sql);
@@ -19,7 +18,6 @@ class DataRap {
         return $data;
     }
 
-    // 🔥 Lấy rạp theo ID (BẮT BUỘC cho XacNhan.php)
     public function getById(int $idRap): ?array {
         $sql = "SELECT * FROM rap WHERE IDRap = ?";
         $stmt = $this->conn->prepare($sql);

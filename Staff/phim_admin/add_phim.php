@@ -3,13 +3,13 @@ require_once '../../headfoot/connect.php';
 require_once '../../Data/PhimData.php';
 session_start();
 
-/* ================= CHECK LOGIN ================= */
+
 if (!isset($_SESSION['LoaiTK'])) {
     header("Location: ../login.php");
     exit();
 }
 
-/* ================= CHECK QUYỀN ================= */
+
 if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
     echo "❌ Bạn không có quyền thêm phim";
     exit();
@@ -18,10 +18,8 @@ if (!in_array($_SESSION['LoaiTK'], ['admin', 'staff'])) {
 $error = null;
 $dataPhim = new PhimData($conn);
 
-/* ================= XỬ LÝ FORM ================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    /* ===== UPLOAD POSTER ===== */
     $uploadDir = "../../images/movie/";
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
@@ -34,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "❌ Upload poster thất bại";
     }
 
-    /* ===== INSERT DB ===== */
     if (!$error) {
         $data = [
             'TenPhim'        => $_POST['TenPhim'],
@@ -47,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'DienVien'       => $_POST['DienVien'],
             'TomTat'         => $_POST['TomTat'],
             'Rate'           => $_POST['Rate'] ?? 0,
-            'TongGhe'        => 100   // 👈 mặc định (sửa nếu cần)
+            'TongGhe'        => 100
         ];
 
         if ($dataPhim->addMovie($data)) {

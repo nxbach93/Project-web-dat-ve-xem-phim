@@ -27,12 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Sai mật khẩu!";
     } else {
 
-        /* ===== SET SESSION ===== */
         $_SESSION['IDTK']  = $user['IDTK'];
         $_SESSION['role']  = $user['LoaiTK'];
         $_SESSION['login'] = true;
 
-        /* ===== REDIRECT ===== */
         if ($user['LoaiTK'] === 'admin') {
             header("Location: add_staff.php");
         } elseif ($user['LoaiTK'] === 'staff') {

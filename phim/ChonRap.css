@@ -1,4 +1,4 @@
-/* Reset nhẹ */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Nền đen toàn trang */
 body {
   min-height: 100vh;
   background-color: #000;

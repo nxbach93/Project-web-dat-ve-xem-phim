@@ -70,29 +70,25 @@ table td {
   border: 1px solid #333;
 }
 
-/* ================= HEADER BẢNG ================= */
 table thead tr {
   background: #1c1c1c;
 }
 
-/* ===== BẢNG GIÁ VÉ – CỘT QUAN TRỌNG ===== */
-table:first-of-type thead th:nth-child(1), /* Loại vé */
-table:first-of-type thead th:nth-child(2), /* Ngày thường */
-table:first-of-type thead th:nth-child(3), /* Ưu đãi */
-table:first-of-type thead th:nth-child(4)  /* Ngày lễ */ {
+table:first-of-type thead th:nth-child(1),
+table:first-of-type thead th:nth-child(2),
+table:first-of-type thead th:nth-child(3),
+table:first-of-type thead th:nth-child(4) {
   color: #e50914;
   font-weight: bold;
 }
 
-/* ===== BẢNG ĐỒ ĂN – CỘT QUAN TRỌNG ===== */
-table:nth-of-type(2) thead th:nth-child(1), /* Tên đồ ăn */
-table:nth-of-type(2) thead th:nth-child(2), /* Giá thường */
-table:nth-of-type(2) thead th:nth-child(3)  /* Giá ưu đãi */ {
+table:nth-of-type(2) thead th:nth-child(1),
+table:nth-of-type(2) thead th:nth-child(2),
+table:nth-of-type(2) thead th:nth-child(3){
   color: #e50914;
   font-weight: bold;
 }
 
-/* ================= NỘI DUNG BẢNG ================= */
 table tbody tr:nth-child(even) {
   background: #161616;
 }
@@ -101,13 +97,12 @@ table tbody tr:hover {
   background: #222;
 }
 
-/* ================= GIÁ TIỀN ================= */
+
 .price {
-  color: #fff; /* GIÁ → TRẮNG */
+  color: #fff;
   font-weight: bold;
 }
 
-/* ================= DỮ LIỆU RỖNG ================= */
 .empty {
   text-align: center;
   color: #aaa;

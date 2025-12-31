@@ -2,14 +2,12 @@
 session_start();
 require_once "../headfoot/connect.php";
 
-// 1. NHẬN ID TỪ URL
 $idlc = isset($_GET['idlc']) ? intval($_GET['idlc']) : 0;
 
 if ($idlc <= 0) {
     die("<h3 style='color:white; text-align:center; margin-top:50px;'>⚠ Lỗi: Không tìm thấy mã lịch chiếu!</h3>");
 }
 
-// 2. LẤY THÔNG TIN PHIM & RẠP
 $sql_info = "SELECT lc.*, p.TenPhim, p.Poster, p.ThoiLuong, r.TenRap, r.DiaChi 
              FROM qllichchieu lc
              JOIN qlphim p ON lc.IDPhim = p.IDPhim
@@ -25,7 +23,6 @@ if (!$data) {
     die("<h3 style='color:white; text-align:center;'>Lỗi: Suất chiếu không tồn tại.</h3>");
 }
 
-// 3. LẤY GIÁ VÉ
 $gia_ve = 75000;
 $gia_rs = $conn->query("SELECT GiaNgayThuong FROM thongtinve LIMIT 1");
 if ($gia_rs && $row = $gia_rs->fetch_assoc()) {

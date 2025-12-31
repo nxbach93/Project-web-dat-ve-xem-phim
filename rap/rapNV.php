@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Nhúng file kết nối từ thư mục headfoot
 include('../headfoot/connect.php'); 
 
 // THÊM / SỬA

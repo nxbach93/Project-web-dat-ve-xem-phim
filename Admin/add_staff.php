@@ -2,7 +2,7 @@
 session_start();
 require_once '../headfoot/connect.php';
 
-/* ===== CHỈ ADMIN ĐƯỢC VÀO ===== */
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -11,7 +11,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 $error = "";
 $success = "";
 
-/* ===== XỬ LÝ THÊM STAFF ===== */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username  = trim($_POST['username']);
@@ -23,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gioitinh  = $_POST['gioitinh'];
     $diachi    = trim($_POST['diachi']);
 
-    /* ===== CHECK TRÙNG USERNAME ===== */
+
     $check = $conn->prepare("SELECT IDTK FROM quanlytaikhoan WHERE TenDangNhap = ?");
     $check->bind_param("s", $username);
     $check->execute();
@@ -33,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Tên đăng nhập đã tồn tại!";
     } else {
 
-        // IDQuyen = 3 → STAFF
         $stmt = $conn->prepare("
             INSERT INTO quanlytaikhoan
             (TenDangNhap, MatKhau, HoVaTen, Email, SDT, NgaySinh, GioiTinh, DiaChi, DiemThanhVien, IDQuyen)
@@ -43,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param(
             "ssssssss",
             $username,
-            $password,   // ⚠ demo dùng plain text, thực tế nên hash
+            $password,
             $hoten,
             $email,
             $sdt,

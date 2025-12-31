@@ -9,7 +9,6 @@
   --beta-red: #e50914;
 }
 
-/* ================= RESET ================= */
 *,
 *::before,
 *::after {
@@ -19,7 +18,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ================= BODY ================= */
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
@@ -31,7 +29,6 @@ body {
   padding: 90px 20px 20px;
 }
 
-/* ================= HEADER ================= */
 .header {
   display: flex;
   align-items: center;
@@ -45,10 +42,9 @@ body {
 .logo {
   font-weight: bold;
   font-size: 22px;
-  color: var(--beta-red); /* quan trọng */
+  color: var(--beta-red);
 }
 
-/* ================= CHỌN RẠP ================= */
 .beta-rap-select {
   position: relative;
 }
@@ -88,7 +84,6 @@ body {
   color: #fff;
 }
 
-/* ================= TAB NGÀY ================= */
 .ngay-tab {
   display: flex;
   justify-content: center;
@@ -133,7 +128,7 @@ body {
   color: var(--text-sub);
 }
 
-/* ================= PHIM CUỘN ================= */
+
 .phim-scroll-box {
   width: 100%;
   max-width: 1000px;
@@ -167,7 +162,7 @@ body {
 
 .phim-info h2 {
   margin: 0;
-  color: var(--beta-red); /* tiêu đề phim */
+  color: var(--beta-red);
 }
 
 .meta {
@@ -182,7 +177,7 @@ margin: 10px 0 20px;
   color: var(--text-main);
 }
 
-/* ================= GIỜ CHIẾU ================= */
+
 .gio-grid {
   display: flex;
   flex-wrap: wrap;
@@ -218,7 +213,6 @@ margin: 10px 0 20px;
   color: var(--beta-red);
 }
 
-/* ================= MODAL ================= */
 .modal {
   display: none;
   position: fixed;
@@ -272,7 +266,6 @@ margin: 10px 0 20px;
   color: var(--text-main);
 }
 
-/* ================= NÚT TIẾP TỤC ================= */
 .continue-btn {
   display: block;
   width: 100%;

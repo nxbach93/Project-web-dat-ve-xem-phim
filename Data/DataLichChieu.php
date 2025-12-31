@@ -6,9 +6,6 @@ class DataLichChieu {
         $this->conn = $conn;
     }
 
-    /* ==============================
-       LẤY LỊCH CHIẾU THEO NGÀY
-    ============================== */
     public function getLichChieuTheoNgay($idRap, $idPhim, $ngay) {
         $sql = "
             SELECT 
@@ -33,9 +30,6 @@ class DataLichChieu {
         return $data;
     }
 
-    /* ==============================
-       DANH SÁCH NGÀY CHIẾU
-    ============================== */
    public function getDanhSachNgay($idRap, $idPhim) {
     $sql = "
         SELECT DISTINCT DATE(NgayChieu) AS Ngay
@@ -55,9 +49,7 @@ class DataLichChieu {
 }
 
 
-    /* ==============================
-       NGÀY CHIẾU (DATE)
-    ============================== */
+
     public function getNgayChieu($idRap, $idPhim) {
         $sql = "
             SELECT DISTINCT DATE(NgayChieu) AS Ngay
@@ -76,9 +68,7 @@ class DataLichChieu {
         return $data;
     }
 
-    /* ==============================
-       GIỜ CHIẾU THEO NGÀY
-    ============================== */
+
     public function getGioChieu($idRap, $idPhim, $ngay) {
         $sql = "
             SELECT *
@@ -99,9 +89,6 @@ class DataLichChieu {
         return $data;
     }
 
-    /* ==============================
-       TÍNH GHẾ TRỐNG
-    ============================== */
     public function tinhGheTrong($idLichChieu) {
         $sql = "
             SELECT 

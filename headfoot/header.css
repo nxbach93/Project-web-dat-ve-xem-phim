@@ -1,4 +1,4 @@
-/* ================= RESET NHẸ ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,22 +7,20 @@
 }
 
 body {
-  background-color: #111; /* Chọn nền đen cho rạp phim */
-  color: #f5f5f5;         /* Chữ trắng */
+  background-color: #111; 
+  color: #f5f5f5;         
   line-height: 1.6;
 }
 
-/* ================= LINK CHUNG ================= */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ================= HEADER ================= */
 header {
-  background-color: #000; /* Header đen */
+  background-color: #000;
   padding: 15px 30px;
-  border-bottom: 2px solid #e50914; /* Viền đỏ đặc trưng */
+  border-bottom: 2px solid #e50914;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,17 +30,15 @@ header {
   right: 0;
   z-index: 1000;
   height: 70px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Thêm bóng mờ cho đẹp */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Logo */
 header h1 {
   color: #e50914;
   font-size: 28px;
   font-weight: bold;
 }
 
-/* ================= NAV ================= */
 nav ul {
   list-style: none;
   display: flex;
@@ -50,17 +46,16 @@ nav ul {
 }
 
 nav ul li a {
-  color: #f5f5f5; /* Link màu trắng */
+  color: #f5f5f5;
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: #e50914; /* Hover màu đỏ */
+  color: #e50914;
 }
 
-/* ================= AUTH (Welcome + Logout) ================= */
 .auth {
   display: flex;
   align-items: center;
@@ -80,7 +75,7 @@ nav ul li a:hover {
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.05); /* Nền mờ nhẹ */
+  background-color: rgba(255, 255, 255, 0.05);
   transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -91,8 +86,6 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* ================= DROPDOWN MENU (ADMIN) ================= */
-/* Giữ lại phần này từ nhánh TinTucVaUuDai */
 .dropdown {
   position: relative;
   display: inline-block;

@@ -8,7 +8,6 @@ class PhimData {
         $this->conn = $conn;
     }
 
-    // Lấy tất cả phim
   public function getAllMovies() {
     $sql = "SELECT * FROM qlphim ORDER BY IDPhim DESC";
     $result = $this->conn->query($sql);
@@ -16,7 +15,6 @@ class PhimData {
 }
 
 
-    // Lấy phim theo ID
     public function getMovieById($idPhim) {
         $stmt = $this->conn->prepare(
             "SELECT * FROM qlphim WHERE IDPhim = ?"
@@ -29,7 +27,6 @@ return $data;
 
     }
 
-    // Thêm phim
     public function addMovie($data) {
         $stmt = $this->conn->prepare("
             INSERT INTO qlphim
@@ -55,7 +52,6 @@ return $data;
         return $stmt->execute();
     }
 
-    // Cập nhật phim
     public function updateMovie($idPhim, $data) {
         $stmt = $this->conn->prepare("
             UPDATE qlphim SET
@@ -92,7 +88,6 @@ return $data;
         return $stmt->execute();
     }
 
-    // Xóa phim
     public function deleteMovie($idPhim) {
         $stmt = $this->conn->prepare(
             "DELETE FROM qlphim WHERE IDPhim = ?"

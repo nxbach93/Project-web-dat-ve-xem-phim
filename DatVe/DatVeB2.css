@@ -246,7 +246,6 @@ body {
     font-style: italic;
 }
 
-/* Right Column (Summary) */
 .checkout-right {
     flex: 1;
     background: #121212;

@@ -30,7 +30,6 @@ if (
     exit();
 }
 
-/* kiểm tra trùng username */
 $sql_check = "SELECT IDTK FROM quanlytaikhoan WHERE TenDangNhap='$user'";
 $result_check = mysqli_query($conn, $sql_check);
 
@@ -44,7 +43,6 @@ if (mysqli_num_rows($result_check) > 0) {
     exit();
 }
 
-/* insert */
 $sql_insert = "
 INSERT INTO quanlytaikhoan
 (TenDangNhap, MatKhau, HoVaTen, Email, SDT, NgaySinh, GioiTinh, DiaChi, DiemThanhVien, IDQuyen)

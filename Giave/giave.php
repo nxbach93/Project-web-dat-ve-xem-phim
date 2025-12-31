@@ -1,8 +1,6 @@
 <?php
 require "../headfoot/connect.php";
 
-// ================= LẤY TẤT CẢ GIÁ VÉ =================
-// Truy vấn lấy toàn bộ dữ liệu từ bảng thongtinve
 $sqlGiaVe = "SELECT IDVe, LoaiVe, GiaNgayThuong, GiaUuDai, GiaNgayLe FROM thongtinve ORDER BY IDVe";
 $giaves = $conn->query($sqlGiaVe);
 
@@ -10,7 +8,6 @@ if (!$giaves) {
     die("Lỗi truy vấn bảng thongtinve: " . $conn->error);
 }
 
-// ================= LẤY DANH SÁCH ĐỒ ĂN UỐNG =================
 $sqlDoAn = "SELECT TenDoAnUong, Gia, GiaUuDai FROM doanuong ORDER BY TenDoAnUong";
 $rsDoAn = $conn->query($sqlDoAn);
 $doanuongs = [];

@@ -1,15 +1,12 @@
 /* DatVe.js */
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // === PHẦN 1: ĐỒNG HỒ ĐẾM NGƯỢC ===
+
     const totalTime = 10 * 60; // 10 phút
     const display = document.querySelector('#countdown'); 
 
-    // Lấy thời gian từ SessionStorage (để đồng bộ)
     let timeLeft = sessionStorage.getItem('bookingTimeLeft');
     if (!timeLeft) timeLeft = totalTime; 
 
-    // Hàm cập nhật đồng hồ
     function updateTimer() {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
@@ -29,12 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
         timeLeft--;
     }
 
-    // Chạy ngay 1 lần để không bị delay 1s đầu
     updateTimer();
     const timerInterval = setInterval(updateTimer, 1000);
 
 
-    // === PHẦN 2: LOGIC CHỌN GHẾ ===
     const container = document.querySelector('.seat-map');
     const displaySeats = document.getElementById('display-seats');
     const displayPrice = document.getElementById('display-price');
@@ -77,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         displayPrice.innerText = totalPrice.toLocaleString('vi-VN') + ' đ';
 
-        // Cập nhật vào input ẩn để gửi đi
         inputGheID.value = seatIDs.join(',');
         inputGheTen.value = seatNames.join(',');
         inputTien.value = totalPrice;

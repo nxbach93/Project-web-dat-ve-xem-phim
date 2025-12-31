@@ -1,10 +1,10 @@
 <?php
 require_once '../headfoot/connect.php';
 
-// ===== Lấy danh sách rạp =====
+
 $rap_rs = $conn->query("SELECT IDRap, TenRap FROM rap ORDER BY TenRap ASC");
 
-// ===== Lọc rạp nếu có =====
+
 $filterRap = isset($_GET['IDRap']) ? intval($_GET['IDRap']) : 0;
 
 if($filterRap){
@@ -26,7 +26,6 @@ if($filterRap){
     ");
 }
 
-// ===== Xóa lịch chiếu =====
 if(isset($_GET['delete'])){
     $id = intval($_GET['delete']);
     $stmt = $conn->prepare("DELETE FROM qllichchieu WHERE IDLichChieu=?");
@@ -37,7 +36,6 @@ if(isset($_GET['delete'])){
     exit;
 }
 
-// ===== Thêm lịch chiếu =====
 if(isset($_POST['add_lichchieu'])){
     $idPhim = intval($_POST['IDPhim']);
     $idRap = intval($_POST['IDRap']);
@@ -53,7 +51,6 @@ if(isset($_POST['add_lichchieu'])){
     exit;
 }
 
-// ===== Sửa lịch chiếu =====
 if(isset($_POST['edit_lichchieu'])){
     $id = intval($_POST['IDLichChieu']);
     $ngay = $_POST['NgayChieu'];
@@ -68,7 +65,6 @@ if(isset($_POST['edit_lichchieu'])){
     exit;
 }
 
-// ===== Lấy danh sách phim =====
 $phim_rs = $conn->query("SELECT IDPhim, TenPhim FROM qlphim ORDER BY TenPhim ASC");
 
 ?>
@@ -83,7 +79,6 @@ $phim_rs = $conn->query("SELECT IDPhim, TenPhim FROM qlphim ORDER BY TenPhim ASC
 <div class="container">
 <h1>Quản lý Lịch Chiếu</h1>
 
-<!-- Dropdown chọn rạp -->
 <form method="get" id="form-filter-rap">
     <label>Chọn rạp:</label>
     <select name="IDRap" onchange="document.getElementById('form-filter-rap').submit();">
@@ -127,7 +122,6 @@ $phim_rs = $conn->query("SELECT IDPhim, TenPhim FROM qlphim ORDER BY TenPhim ASC
 </table>
 </div>
 
-<!-- Modal Thêm -->
 <div id="modal-add" class="modal">
 <div class="modal-content">
 <span class="close" onclick="closeModal('modal-add')">&times;</span>
@@ -156,7 +150,6 @@ $phim_rs = $conn->query("SELECT IDPhim, TenPhim FROM qlphim ORDER BY TenPhim ASC
 </div>
 </div>
 
-<!-- Modal Sửa -->
 <div id="modal-edit" class="modal">
 <div class="modal-content">
 <span class="close" onclick="closeModal('modal-edit')">&times;</span>

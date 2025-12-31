@@ -10,14 +10,11 @@ $idPhim = (int)$_GET['idphim'];
 
 $dataLich = new DataLichChieu($conn);
 
-// LẤY DANH SÁCH NGÀY
 $dsNgay = $dataLich->getDanhSachNgay($idRap, $idPhim);
 
-// XÁC ĐỊNH NGÀY ĐƯỢC CHỌN
 if (isset($_GET['ngay'])) {
     $ngay = $_GET['ngay'];
 } else {
-    // mặc định lấy ngày đầu tiên
     $ngay = $dsNgay[0]['NgayChieu'] ?? null;
 }
 $dsLichChieu = [];
@@ -58,7 +55,6 @@ if (!$phim) {
 
 <div class="container">
 
-    <!-- THÔNG TIN PHIM -->
     <div class="movie-info">
         <img src="uploads/<?= $phim['Poster'] ?>" alt="">
         <div>
@@ -67,7 +63,6 @@ if (!$phim) {
         </div>
     </div>
 
-    <!-- CHỌN NGÀY -->
     <div class="date-filter">
     <?php foreach ($dsNgay as $d): ?>
         <a
@@ -78,7 +73,6 @@ if (!$phim) {
         </a>
     <?php endforeach; ?>
 </div>
-    <!-- DANH SÁCH SUẤT CHIẾU -->
    <div class="showtime-list">
     <?php if (empty($dsLichChieu)): ?>
         <p class="text-muted">Không có suất chiếu cho ngày này.</p>

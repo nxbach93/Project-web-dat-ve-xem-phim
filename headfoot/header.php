@@ -4,13 +4,11 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 <header>
-    <!-- Logo -->
     <h1>
 
         <a href="/Project_Web/trangchu/formTrangChu.php">Cinemas</a>
     </h1>
 
-    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="/Project_Web/phim/phim.php">PHIM</a></li>
@@ -22,7 +20,6 @@ if (session_status() === PHP_SESSION_NONE) {
         </ul>
     </nav>
 
-    <!-- Auth -->
     <div class="auth">
         <?php if (isset($_SESSION['username'])): ?>
             <span>Welcome: <?= htmlspecialchars($_SESSION['username']) ?></span>
