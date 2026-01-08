@@ -1,0 +1,295 @@
+:root {
+  --bg-main: #000;
+  --bg-box: #111;
+  --border-dark: #222;
+
+  --text-main: #fff;
+  --text-sub: #b3b3b3;
+
+  --beta-red: #e50914;
+}
+
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 90px 20px 20px;
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  background: var(--bg-main);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 22px;
+  color: var(--beta-red); /* quan trọng */
+}
+
+/* ================= CHỌN RẠP ================= */
+.beta-rap-select {
+  position: relative;
+}
+
+.selected-rap {
+  padding: 10px 18px;
+  border: 1px solid var(--border-dark);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--bg-box);
+  color: var(--text-main);
+}
+
+.rap-dropdown {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 220px;
+  background: var(--bg-box);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  border: 1px solid var(--border-dark);
+}
+
+.rap-dropdown a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.rap-dropdown a:hover {
+  background: var(--beta-red);
+  color: #fff;
+}
+
+/* ================= TAB NGÀY ================= */
+.ngay-tab {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+.ngay-tab a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-box);
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-main);
+  min-width: 70px;
+  transition: background 0.3s;
+  font-size: 16px;
+  border: 1px solid var(--border-dark);
+}
+
+.ngay-tab a.active {
+  background-color: var(--beta-red);
+  color: #fff;
+}
+
+.ngay-tab a:hover {
+  background-color: #b20710;
+  color: #fff;
+}
+
+.ngay-tab .day {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.ngay-tab .sub {
+  font-size: 14px;
+  margin-top: 4px;
+  color: var(--text-sub);
+}
+
+/* ================= PHIM CUỘN ================= */
+.phim-scroll-box {
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  overflow-y: auto;
+  background-color: var(--bg-box);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+}
+
+.phim-list {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.phim-row {
+  display: flex;
+  gap: 25px;
+}
+
+.poster {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.phim-info h2 {
+  margin: 0;
+  color: var(--beta-red); /* tiêu đề phim */
+}
+
+.meta {
+margin: 10px 0 20px;
+  color: var(--text-sub);
+  font-size: 14px;
+}
+
+.format {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+/* ================= GIỜ CHIẾU ================= */
+.gio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gio-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.gio-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--beta-red);
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 60px;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.gio-btn:hover {
+  background-color: #b20710;
+}
+
+.so-ghe-trong {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--beta-red);
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: var(--bg-box);
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+}
+
+.modal-content img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-content h2 {
+  margin: 10px 0;
+  color: var(--beta-red);
+  font-weight: bold;
+}
+
+.modal-content p {
+  margin: 5px 0;
+  color: var(--text-sub);
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+/* ================= NÚT TIẾP TỤC ================= */
+.continue-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #e50914, #b20710);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: linear-gradient(90deg, #b20710, #7a0000);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(229, 9, 20, 0.5);
+}

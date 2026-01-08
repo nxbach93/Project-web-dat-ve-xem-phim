@@ -1,0 +1,72 @@
+/* Reset nhẹ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Nền đen toàn trang */
+body {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tiêu đề */
+h2 {
+  margin-bottom: 30px;
+  color: #ff3b3b;
+  letter-spacing: 1px;
+}
+
+/* Danh sách rạp */
+.rap-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+}
+
+/* Item rạp */
+.rap-item {
+  width: 260px;
+  padding: 20px;
+  text-align: center;
+
+  border: 2px solid #ff3b3b;
+  border-radius: 10px;
+  background-color: #111;
+
+  text-decoration: none;
+  color: #fff;
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.rap-item:hover {
+  background-color: #ff3b3b;
+  color: #000;
+  transform: translateY(-5px);
+}
+
+/* Tên rạp */
+.rap-item h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Địa chỉ */
+.rap-item p {
+  font-size: 14px;
+  opacity: 0.85;
+}
