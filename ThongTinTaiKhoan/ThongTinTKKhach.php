@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save_profile'])) {
     $stmt_up->bind_param("ssssssi", $fullname, $phone, $email, $dob, $gender, $address, $idtk);
     
     if ($stmt_up->execute()) {
-        echo "<script>alert('Cập nhật thông tin thành công!'); window.location.href='ThongTinTK.php';</script>";
+        echo "<script>alert('Cập nhật thông tin thành công!'); 
+        window.location.href='ThongTinTKKhach.php';</script>";
         exit();
     } else {
         echo "<script>alert('Có lỗi xảy ra: " . $conn->error . "');</script>";

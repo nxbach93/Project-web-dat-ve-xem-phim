@@ -29,9 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtUpdate->bind_param("sssssss", $hoTen, $sdt, $email, $ngaySinh, $gioiTinh, $diaChi, $user);
     
     if ($stmtUpdate->execute()) {
-        echo "<script>alert('Cập nhật thông tin thành công!');</script>";
-        // Refresh lại trang
-        echo "<script>window.location.href = window.location.href;</script>";
+        echo "<script>alert('Cập nhật thông tin thành công!'); window.location.href='ThongTinTKKhach.php';</script>";
     } else {
         echo "<script>alert('Lỗi cập nhật: " . $conn->error . "');</script>";
     }

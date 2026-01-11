@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_GET['logout']) && $_GET['logout'] === 'true') {
+    unset($_SESSION['username']);
+    header("Location: formTrangChuNV.php");
+    exit();
+}
 include('../headfoot/connect.php'); 
 
                 $today = date('Y-m-d');

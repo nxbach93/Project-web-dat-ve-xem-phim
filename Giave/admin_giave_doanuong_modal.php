@@ -10,9 +10,12 @@ $doanuongs = $conn->query("SELECT * FROM doanuong ORDER BY TenDoAnUong");
 <head>
 <meta charset="UTF-8">
 <title>Quản lý Giá Vé & Đồ Ăn Uống</title>
+<link rel="stylesheet" href="../headfoot/header.css">
 <link rel="stylesheet" href="admin_giave_modal.css">
 </head>
 <body>
+    <?php include('../headfoot/headerNV.php'); ?>
+    <br><br><br><br>
 <div class="container">
     <h1>🎟️ Quản lý Giá Vé & Đồ Ăn Uống</h1>
 

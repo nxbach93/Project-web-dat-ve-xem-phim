@@ -1,68 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const oldPass = document.getElementById('old_password');
-    const newPass = document.getElementById('new_password');
-    const confirmPass = document.getElementById('confirm_password');
+document.addEventListener('DOMContentLoaded', () => {
+    // Tìm tất cả các form đổi mật khẩu dựa trên cấu trúc chung
+    const passwordForm = document.querySelector('.password-card form');
 
-<<<<<<< HEAD
-    form.addEventListener('submit', function (e) {
-        // Ngăn form gửi đi ngay lập tức để kiểm tra lỗi
-        e.preventDefault();
+    if (!passwordForm) return;
 
-=======
-    if (form) {
-        form.addEventListener('submit', function (e) {
->>>>>>> origin/Form_TinTucVaUuDai
-        const vOld = oldPass.value.trim();
-        const vNew = newPass.value.trim();
-        const vConfirm = confirmPass.value.trim();
+    passwordForm.addEventListener('submit', function (e) {
+        // Lấy giá trị từ các ô input
+        const oldPass = this.querySelector('input[name="old_password"]').value;
+        const newPass = this.querySelector('input[name="new_password"]').value;
+        const confirmPass = this.querySelector('input[name="confirm_password"]').value;
 
-        // 1. Kiểm tra độ dài mật khẩu mới (8 - 20 ký tự)
-        if (vNew.length < 8 || vNew.length > 20) {
-            alert("Mật khẩu mới phải có độ dài từ 8 đến 20 ký tự!");
-            newPass.focus();
-<<<<<<< HEAD
-=======
-                e.preventDefault(); // Chỉ chặn khi có lỗi
->>>>>>> origin/Form_TinTucVaUuDai
+        // 1. Kiểm tra độ dài mật khẩu mới (Ví dụ: tối thiểu 6 ký tự)
+        if (newPass.length < 6) {
+            alert("Mật khẩu mới phải có ít nhất 6 ký tự!");
+            e.preventDefault(); // Ngăn gửi form
             return;
         }
 
-        // 2. Mật khẩu mới phải khác mật khẩu cũ
-        if (vNew === vOld) {
+        // 2. Kiểm tra mật khẩu mới có trùng mật khẩu cũ không
+        if (newPass === oldPass) {
             alert("Mật khẩu mới không được trùng với mật khẩu cũ!");
-            newPass.focus();
-<<<<<<< HEAD
-=======
-                e.preventDefault();
->>>>>>> origin/Form_TinTucVaUuDai
+            e.preventDefault();
             return;
         }
 
-        // 3. Xác nhận mật khẩu mới phải giống mật khẩu mới
-        if (vConfirm !== vNew) {
+        // 3. Kiểm tra xác nhận mật khẩu khớp nhau
+        if (newPass !== confirmPass) {
             alert("Xác nhận mật khẩu mới không khớp!");
-            confirmPass.focus();
-<<<<<<< HEAD
+            e.preventDefault();
             return;
         }
 
-        // Nếu mọi thứ ok -> Hiển thị thông báo thành công
-        alert("Thay đổi mật khẩu thành công!");
-
-        // 4. Xóa trắng 3 ô nhập liệu
-        form.reset();
-
-        // 5. Load lại trang
-        window.location.reload();
+        // Nếu mọi thứ ổn, thông báo đang xử lý
+        console.log("Dữ liệu hợp lệ, đang gửi yêu cầu đổi mật khẩu...");
     });
-=======
-                e.preventDefault();
-            return;
-        }
-            
-            // Nếu không có lỗi, form sẽ tự động submit sang process-change-password.php
-        });
-    }
->>>>>>> origin/Form_TinTucVaUuDai
 });

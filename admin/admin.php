@@ -73,9 +73,11 @@ $phim_rs = $conn->query("SELECT IDPhim, TenPhim FROM qlphim ORDER BY TenPhim ASC
 <head>
 <meta charset="UTF-8">
 <title>Quản lý Lịch Chiếu</title>
+<link rel="stylesheet" href="../headfoot/header.css">
 <link rel="stylesheet" href="admin.css?v=1">
 </head>
 <body>
+    <?php include "../headfoot/headerNV.php"; ?>
 <div class="container">
 <h1>Quản lý Lịch Chiếu</h1>
 

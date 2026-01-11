@@ -1,60 +1,29 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     const editBtn = document.getElementById('editBtn');
     const saveBtn = document.getElementById('saveBtn');
-    const form = document.getElementById('profileForm');
-    const inputs = form.querySelectorAll('input, select');
+    const profileForm = document.getElementById('profileForm');
 
-    // 1. Khi nhấn nút Cập nhật
-    editBtn.addEventListener('click', () => {
-        // Gỡ bỏ disabled để người dùng có thể sửa và gửi được dữ liệu qua POST
+    if (!editBtn || !profileForm) return;
+
+    // 1. Khi bấm Cập nhật
+    editBtn.addEventListener('click', function() {
+        const inputs = profileForm.querySelectorAll('input, select');
         inputs.forEach(input => {
-            input.disabled = false;
+            input.removeAttribute('disabled');
+            input.removeAttribute('readonly');
+            input.style.border = "1px solid #007bff";
         });
 
-        // Chuyển trạng thái hiển thị nút
-        editBtn.style.display = 'none';
-        saveBtn.style.display = 'inline-block';
-
-        // Tự động focus vào ô đầu tiên để người dùng nhập ngay
-        inputs[0].focus();
+        this.style.display = 'none';
+        if (saveBtn) saveBtn.style.display = 'inline-block';
     });
 
-    // 2. Khi nhấn nút Lưu (Sự kiện submit)
-    form.addEventListener('submit', (e) => {
-        // Có thể thực hiện kiểm tra dữ liệu nhanh tại đây (nếu cần)
-        const fullname = form.querySelector('[name="fullname"]').value.trim();
-        
-        if (fullname === "") {
-            alert("Vui lòng không để trống Họ và tên!");
-            e.preventDefault(); // Chặn gửi form nếu lỗi
-            return;
+    // 2. Khi gửi Form (Lưu)
+    profileForm.addEventListener('submit', function() {
+        // Thay đổi nội dung nút để người dùng biết đang xử lý
+        if (saveBtn) {
+            saveBtn.innerHTML = "Đang lưu...";
+            saveBtn.style.opacity = "0.7";
         }
-
-        // Lưu ý: Không dùng e.preventDefault() hoàn toàn để dữ liệu được gửi về server
-        console.log("Đang gửi dữ liệu cập nhật...");
     });
-=======
-document.addEventListener("DOMContentLoaded", function () {
-    const editBtn = document.getElementById("editBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const form = document.getElementById("profileForm");
-
-    if (editBtn && form) {
-        editBtn.addEventListener("click", function () {
-            // Bật chỉnh sửa input (xóa readonly)
-            form.querySelectorAll("input").forEach(input => {
-                input.removeAttribute("readonly");
-            });
-
-            // Bật chỉnh sửa select (xóa disabled)
-            form.querySelectorAll("select").forEach(select => {
-                select.disabled = false;
-            });
-
-            saveBtn.style.display = "inline-block";
-            editBtn.style.display = "none";
-        });
-    }
->>>>>>> origin/Form_TinTucVaUuDai
 });
