@@ -1,49 +1,62 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f2f4f7;
+  background: #000;
   margin: 0;
   padding: 0;
+  color: #f5f5f5;
 }
 
+/* ================= CONTAINER ================= */
 .container {
   max-width: 1000px;
   margin: 20px auto;
   padding: 20px;
-  background: #fff;
+  background: #111;
   border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
 }
 
+/* ================= TIÊU ĐỀ ================= */
 h1,
 h2 {
   margin-bottom: 15px;
+  color: #e50914; /* đỏ – tiêu đề */
+  text-align: center;
 }
 
+/* ================= TABLE ================= */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  background: #111;
+  color: #eee;
 }
 
 table th,
 table td {
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   padding: 8px;
   text-align: center;
 }
 
+/* tiêu đề cột – phần quan trọng */
 table th {
-  background: #007bff;
-  color: #fff;
+  background: #1c1c1c;
+  color: #e50914; /* đỏ – header bảng */
+  font-weight: bold;
 }
 
+/* dòng xen kẽ */
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #161616;
 }
 
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: #222;
 }
 
+/* ================= BUTTON ================= */
 .btn {
   padding: 5px 10px;
   border: none;
@@ -52,18 +65,42 @@ tr:hover {
   text-decoration: none;
   color: #fff;
   margin-right: 5px;
+  font-size: 14px;
 }
 
+/* nút thêm */
 .btn.add {
-  background-color: #28a745;
+  background-color: #6c757d; /* xám giống nút sửa */
 }
-.btn.edit {
-  background-color: #ffc107;
-}
-.btn.delete {
-  background-color: #dc3545;
+.btn.add:hover {
+  background-color: #868e96;
 }
 
+/* nút sửa */
+.btn.edit {
+  background-color: #6c757d;
+}
+.btn.edit:hover {
+  background-color: #868e96;
+}
+
+/* nút xóa */
+.btn.delete {
+  background-color: #6c757d; /* đổi từ đỏ sang xám */
+}
+.btn.delete:hover {
+  background-color: #868e96;
+}
+
+/* nút xóa tất cả nếu có */
+.btn.delete-all {
+  background-color: #6c757d;
+}
+.btn.delete-all:hover {
+  background-color: #868e96;
+}
+
+/* ================= MODAL ================= */
 .modal {
   display: none;
   position: fixed;
@@ -74,18 +111,22 @@ tr:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* ================= MODAL CONTENT ================= */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #111;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
   position: relative;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
 }
 
+/* nút đóng */
 .close {
   color: #aaa;
   float: right;
@@ -95,16 +136,29 @@ tr:hover {
 }
 
 .close:hover {
-  color: #000;
+  color: #fff;
 }
 
+/* ================= FORM ================= */
 .modal-content label {
   display: block;
   margin-top: 10px;
+  color: #ccc;
 }
+
 .modal-content input,
 .modal-content select {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
+  background: #000;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  outline: none;
+  border-color: #e50914;
 }

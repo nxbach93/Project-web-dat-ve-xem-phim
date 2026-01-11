@@ -37,7 +37,7 @@ $phim_rs = $conn->query("
     FROM qllichchieu lc
     JOIN qlphim p ON lc.IDPhim = p.IDPhim
     WHERE lc.IDRap = $selectedRap
-      AND lc.NgayChieu = '$selectedNgay'
+    AND lc.NgayChieu = '$selectedNgay'
 ");
 ?>
 <!DOCTYPE html>
