@@ -22,7 +22,7 @@ if ($result) {
     <meta charset="UTF-8">
     <title>Tin Tức Điện Ảnh</title>
     <link rel="stylesheet" href="../headfoot/header.css">
-    <link rel="stylesheet" href="formTinTuc.css">
+    <link rel="stylesheet" href="formTinTucKH.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -32,13 +32,6 @@ if ($result) {
 <main class="news-container">
     <h2>Tin Tức & Sự Kiện</h2>
     
-    <!-- Hiển thị nút Thêm tin nếu là Admin/Nhân viên -->
-    <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'employee')): ?>
-        <div style="text-align: right; margin-bottom: 20px;">
-            <a href="themTin.php" class="btn-detail" style="background-color: #ff0000ff; border: none;">+ Thêm tin mới</a>
-        </div>
-    <?php endif; ?>
-
     <div class="news-list">
         <?php if (empty($news_list)): ?>
             <p style="text-align: center; width: 100%;">Chưa có tin tức nào.</p>
@@ -54,10 +47,6 @@ if ($result) {
                     
                     <div class="action-group">
                         <a href="chiTietTin.php?id=<?= $item['id'] ?>" class="btn-detail">Xem chi tiết</a>
-                        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'employee')): ?>
-                            <a href="suaTin.php?id=<?= $item['id'] ?>" class="btn-edit">Sửa</a>
-                            <a href="xoaTin.php?id=<?= $item['id'] ?>" class="btn-delete" onclick="return confirm('Bạn có chắc chắn muốn xóa tin này không?');">Xóa</a>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>

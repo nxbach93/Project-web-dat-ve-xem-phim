@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "testdbproject");
+$conn = mysqli_connect("localhost", "root", "", "database");
 if (!$conn) {
     die("Lỗi kết nối CSDL: " . mysqli_connect_error());
 }

@@ -12,7 +12,7 @@ session_start();
 
 <h2>Đăng nhập khách hàng</h2>
 
-<form method="post" action="login_process.php">
+<form method="post" action="login_process_KH.php">
     <input type="hidden" name="role" value="customer">
 
     <label>Tên đăng nhập</label><br>

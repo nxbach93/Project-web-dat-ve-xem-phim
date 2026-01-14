@@ -1,13 +1,29 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <header>
-    <h1><a href="../TrangChu/formTrangChuAdmin.php">ADMIN SYSTEM</a></h1>
+    <!-- Logo -->
+    <h1>
+        <a href="../TrangChu/formTrangChuAdmin.php">Cinemas</a>
+    </h1>
+
+    <!-- Auth -->
     <div class="auth">
+    <?php if (isset($_SESSION['username'])): ?>
+        
         <div class="dropdown">
-            <span class="dropbtn">Admin <span style="font-size: 12px;">▼</span></span>
+            <a href="#" class="dropbtn"><?= htmlspecialchars($_SESSION['username']) ?> ▼</a>
             <div class="dropdown-content">
+                <a href="../ThongTinTaiKhoan/ThongTinTKAdmin.php">Thông tin tài khoản</a>
                 <a href="../TrangChu/formTrangChuAdmin.php">Quản lý nhân viên</a>
-                <a href="../ThongTinTaiKhoan/ThongTinTKAdmin.php">Thông tin chi tiết</a>
-                <a href="../DangNhap/logout.php">Đăng xuất</a>
+                <a href="../TrangChu/formTrangChuAdmin.php?logout=true">Đăng xuất</a>
             </div>
         </div>
-    </div>
+
+    <?php else: ?>
+        <a href="../DangNhap/formDangNhapAdmin.php">Đăng nhập</a>
+    <?php endif; ?>
+</div>
 </header>

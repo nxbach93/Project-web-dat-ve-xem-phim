@@ -2,12 +2,6 @@
 session_start();
 include('../headfoot/connect.php');
 
-// Kiểm tra quyền Admin
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../DangNhap/login.php");
-    exit();
-}
-
 // Kiểm tra tham số user trên URL
 if (!isset($_GET['user'])) {
     echo "<script>alert('Không tìm thấy nhân viên!'); window.location.href='formTrangChuAdmin.php';</script>";
@@ -26,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $diaChi = $_POST['dia_chi'];
 
     // Cập nhật thông tin (Không cho phép sửa Tên đăng nhập)
+    // IDQuyen=2 đảm bảo chỉ update đúng tài khoản nhân viên
     $sql = "UPDATE quanlytaikhoan SET HoVaTen=?, Email=?, SDT=?, NgaySinh=?, GioiTinh=?, DiaChi=? WHERE TenDangNhap=? AND IDQuyen=2";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssssss", $hoTen, $email, $sdt, $ngaySinh, $gioiTinh, $diaChi, $username);
@@ -46,7 +41,7 @@ $resultInfo = $stmtInfo->get_result();
 $nv = $resultInfo->fetch_assoc();
 
 if (!$nv) {
-    echo "<script>alert('Nhân viên không tồn tại!'); window.location.href='formTrangChuAdmin.php';</script>";
+    echo "<script>alert('Nhân viên không tồn tại hoặc không phải quyền Nhân viên!'); window.location.href='formTrangChuAdmin.php';</script>";
     exit();
 }
 ?>
@@ -55,7 +50,7 @@ if (!$nv) {
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thông tin nhân viên</title>
+    <title>Sửa thông tin nhân viên</title>
     <link rel="stylesheet" href="../headfoot/header.css">
     <link rel="stylesheet" href="formSuaNhanVien.css">
 </head>
@@ -65,7 +60,7 @@ if (!$nv) {
 
 <main class="admin-container">
     <div class="form-card">
-        <h2>Thông tin nhân viên</h2>
+        <h2>Sửa thông tin nhân viên: <?= htmlspecialchars($username) ?></h2>
         
         <form method="POST">
             <div class="form-group">
@@ -98,8 +93,7 @@ if (!$nv) {
             </div>
 
             <div class="form-group">
-                <label>Địa chỉ (Tỉnh/Thành phố)</label>
-                <!-- Bạn có thể copy list option tỉnh thành từ formDangKyNV.php vào đây nếu muốn select box đầy đủ -->
+                <label>Địa chỉ</label>
                 <input type="text" name="dia_chi" value="<?= htmlspecialchars($nv['DiaChi']) ?>" required>
             </div>
 

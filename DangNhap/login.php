@@ -11,8 +11,8 @@
 <div class="login-wrapper">
     <h2>Chọn vai trò đăng nhập</h2>
     <div class="role-options">
+        <a href="formDangNhapAdmin.php" class="btn-role">Admin</a>
         <a href="formDangNhapNV.php" class="btn-role">Nhân viên</a>
-        <a href="formDangNhapKH.php" class="btn-role">Khách hàng</a>
     </div>
 </div>
 </body>

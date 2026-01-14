@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "testdbproject");
+$conn = new mysqli("localhost", "root", "", "database");
 if ($conn->connect_error) {
     die("Lỗi kết nối: " . $conn->connect_error);
 }

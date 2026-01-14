@@ -9,7 +9,7 @@
 
 <h2>Đăng nhập nhân viên</h2>
 
-<form method="post" action="login_process.php">
+<form method="post" action="login_process_NV.php">
     <input type="hidden" name="role" value="staff">
 
     <label>Tên đăng nhập</label><br>

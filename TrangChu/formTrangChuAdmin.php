@@ -1,12 +1,11 @@
 <?php
 session_start();
-include('../headfoot/connect.php');
-
-// Kiểm tra quyền Admin
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../DangNhap/login.php");
+if (isset($_GET['logout']) && $_GET['logout'] === 'true') {
+    unset($_SESSION['username']);
+    header("Location: formTrangChuAdmin.php");
     exit();
 }
+include('../headfoot/connect.php');
 
 // Xử lý Xóa nhân viên
 if (isset($_GET['delete_user'])) {

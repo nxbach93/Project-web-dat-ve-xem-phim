@@ -2,12 +2,6 @@
 session_start();
 include '../DangNhap/db.php';
 
-// Kiểm tra quyền Admin/Nhân viên
-if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'employee')) {
-    echo "<script>alert('Bạn không có quyền truy cập!'); window.location.href='formTinTuc.php';</script>";
-    exit();
-}
-
 // Xử lý khi bấm nút Lưu
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tieu_de = $_POST['tieu_de'];
@@ -39,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("ssss", $tieu_de, $mo_ta, $noi_dung, $target_file);
             
             if ($stmt->execute()) {
-                echo "<script>alert('Thêm tin mới thành công!'); window.location.href='formTinTuc.php';</script>";
+                echo "<script>alert('Thêm tin mới thành công!'); window.location.href='formTinTucNV.php';</script>";
             } else {
                 echo "<script>alert('Lỗi Database: " . $stmt->error . "');</script>";
             }
@@ -59,12 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-<?php include "../headfoot/header.php"; ?>
+<?php include "../headfoot/headerNV.php"; ?>
 
 <main class="admin-container">
     <div class="admin-header">
         <h2>Thêm Tin Tức Mới</h2>
-        <a href="formTinTuc.php" class="btn-submit" style="background-color: #555;">Quay lại</a>
+        <a href="formTinTucNV.php" class="btn-submit" style="background-color: #555;">Quay lại</a>
     </div>
 
     <div class="admin-form">

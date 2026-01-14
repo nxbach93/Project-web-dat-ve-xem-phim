@@ -16,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li><a href="../rap/rapNV.php">Rạp</a></li>
             <li><a href="../Admin/admin.php">Lịch chiếu</a></li>
             <li><a href="../Giave/admin_giave_doanuong_modal.php">Giá vé</a></li>
-            <li><a href="../TinTuc/formTinTuc.php">Tin tức</a></li>
+            <li><a href="../TinTuc/formTinTucNV.php">Tin tức</a></li>
         </ul>
     </nav>
 

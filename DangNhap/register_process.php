@@ -47,7 +47,7 @@ $sql_insert = "
 INSERT INTO quanlytaikhoan
 (TenDangNhap, MatKhau, HoVaTen, Email, SDT, NgaySinh, GioiTinh, DiaChi, DiemThanhVien, IDQuyen)
 VALUES
-('$user','$pass','$ho_ten','$email','$sdt','$ns','$gt','$dc', 0, 1)
+('$user','$pass','$ho_ten','$email','$sdt','$ns','$gt','$dc', 0, 3)
 ";
 
 if (mysqli_query($conn, $sql_insert)) {

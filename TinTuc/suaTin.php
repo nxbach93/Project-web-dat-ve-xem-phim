@@ -2,11 +2,6 @@
 session_start();
 include '../DangNhap/db.php';
 
-// 1. Kiểm tra quyền
-if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'employee')) {
-    die("Bạn không có quyền truy cập trang này.");
-}
-
 // 2. Kiểm tra ID
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("ID tin tức không hợp lệ.");
@@ -73,7 +68,7 @@ if (!$tin) die("Không tìm thấy tin tức.");
 </head>
 <body>
 
-<?php include "../headfoot/header.php"; ?>
+<?php include "../headfoot/headerNV.php"; ?>
 
 <main class="admin-container">
     <div class="admin-header">

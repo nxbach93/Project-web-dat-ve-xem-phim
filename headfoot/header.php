@@ -16,7 +16,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li><a href="../rap/rap.php">Rạp</a></li>
             <li><a href="../LichChieu/Form_LichChieu.php">Lịch chiếu</a></li>
             <li><a href="../Giave/giave.php">Giá vé</a></li>
-            <li><a href="../TinTuc/formTinTuc.php">Tin tức</a></li>
+            <li><a href="../TinTuc/formTinTucKH.php">Tin tức</a></li>
         </ul>
     </nav>
 
@@ -31,7 +31,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </div>
     <?php else: ?>
-        <a href="../DangNhap/formDangNhap.php">Đăng nhập</a>
+        <a href="../DangNhap/formDangNhapKH.php">Đăng nhập</a>
     <?php endif; ?>
 </div>
 </header>

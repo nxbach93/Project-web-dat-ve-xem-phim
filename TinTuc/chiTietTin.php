@@ -44,7 +44,7 @@ $tin = $result->fetch_assoc();
             <div class="content-body"><?= nl2br(htmlspecialchars($tin['noi_dung'])) ?></div>
             
             <div class="action-buttons">
-                <a href="formTinTuc.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Quay lại</a>
+                <a href="formTinTucKH.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Quay lại</a>
             </div>
         </div>
     </div>

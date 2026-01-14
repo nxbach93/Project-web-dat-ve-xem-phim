@@ -5,14 +5,14 @@ session_start();
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng nhập khách hàng</title>
-    <link rel="stylesheet" href="formDangNhap.css">
+    <title>Đăng nhập Admin</title>
+    <link rel="stylesheet" href="formDangNhapAdmin.css">
 </head>
 <body>
 
-<h2>Đăng nhập</h2>
+<h2>Đăng nhập Admin</h2>
 
-<form method="post" action="login_process.php">
+<form method="post" action="login_process_Admin.php">
     <input type="hidden" name="role" value="customer">
 
     <label>Tên đăng nhập</label><br>
@@ -28,8 +28,6 @@ session_start();
 
     <button type="submit">Đăng nhập</button>
 </form>
-
-<p>Chưa có tài khoản? <a href="formDangKy.php">Đăng ký</a></p>
 
 </body>
 </html>
